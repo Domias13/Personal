@@ -863,7 +863,6 @@
         .current-price {
             font-size: 36px;
             font-weight: 800;
-            color: var(--primary);
             margin-bottom: 10px;
         }
 
@@ -1131,6 +1130,42 @@
             background: var(--light);
         }
 
+        /* Loading Overlay */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        .loading-text {
+            font-size: 18px;
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
         /* Animations */
         @keyframes pulse {
             0% { transform: scale(1); }
@@ -1213,9 +1248,15 @@
     </style>
 </head>
 <body>
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Определяем вашу страну и валюту...</div>
+    </div>
+
     <!-- Sticky CTA Bar -->
     <div class="sticky-cta">
-        <div class="sticky-price">Только 990 ₽ вместо 4,990 ₽</div>
+        <div class="sticky-price">Специальная цена</div>
         <button class="sticky-btn">Да, я хочу!</button>
     </div>
 
@@ -1631,11 +1672,11 @@
                 <h3 class="calculator-title">Твоя Выгода</h3>
                 <div class="calculator-row">
                     <span class="calculator-label">Обычная цена:</span>
-                    <span class="calculator-value">4,990 ₽</span>
+                    <span class="calculator-value" id="originalPrice">4,990 ₽</span>
                 </div>
                 <div class="calculator-row">
                     <span class="calculator-label">Специальная цена:</span>
-                    <span class="calculator-value">990 ₽</span>
+                    <span class="calculator-value" id="specialPrice">990 ₽</span>
                 </div>
                 <div class="calculator-row">
                     <span class="calculator-label">Экономия:</span>
@@ -1645,7 +1686,7 @@
                     <span class="calculator-label">Стоимость в день:</span>
                     <span class="calculator-value" style="color: var(--primary);">33 ₽</span>
                 </div>
-                <div class="calculator-total">
+                <div class="calculator-total" id="totalPrice">
                     Итого: 990 ₽
                 </div>
             </div>
@@ -1655,9 +1696,9 @@
     <!-- Price -->
     <section class="price-section">
         <div class="container">
-            <p class="original-price">Обычная цена: 4,990 ₽</p>
-            <p class="current-price pulse">Только сегодня: 990 ₽</p>
-            <p class="price-note">Экономия 4,000 ₽! Предложение действует 24 часа.</p>
+            <p class="original-price" id="pageOriginalPrice">Обычная цена: 4,990 ₽</p>
+            <p class="current-price pulse" id="pageCurrentPrice">Только сегодня: 990 ₽</p>
+            <p class="price-note" id="pagePriceNote">Экономия 4,000 ₽! Предложение действует 24 часа.</p>
             <div class="price-features">
                 <div class="price-feature">
                     <i class="fas fa-check-circle"></i>
@@ -1691,7 +1732,7 @@
                 </div>
                 <div class="comparison-row">
                     <div class="comparison-label">Стоимость</div>
-                    <div class="comparison-value comparison-our">990 ₽</div>
+                    <div class="comparison-value comparison-our" id="comparisonPrice">990 ₽</div>
                     <div class="comparison-value comparison-other">От 5,000 ₽</div>
                 </div>
                 <div class="comparison-row">
@@ -1768,7 +1809,7 @@
         <div class="container">
             <h3 class="final-title">Да, я хочу новое тело!</h3>
             <p class="final-subtitle">Последние 3 места по специальной цене</p>
-            <a href="#" class="final-btn">
+            <a href="#" class="final-btn" id="purchaseButton">
                 Начать преображение
             </a>
             <div class="payment-methods">
@@ -1790,6 +1831,42 @@
     </div>
 
     <script>
+        // Currency configuration
+        const CURRENCY_CONFIG = {
+            'UA': {
+                name: 'Украина',
+                currency: 'UAH',
+                symbol: 'грн',
+                price: 890,
+                originalPrice: 4450,
+                buttonUrl: 'https://secure.wayforpay.com/button/bf2c8e162fb1a'
+            },
+            'KZ': {
+                name: 'Казахстан',
+                currency: 'KZT',
+                symbol: '₸',
+                price: 8900,
+                originalPrice: 44500,
+                buttonUrl: 'https://secure.wayforpay.com/button/b944da83066f4'
+            },
+            'RU': {
+                name: 'Россия',
+                currency: 'RUB',
+                symbol: '₽',
+                price: 1490,
+                originalPrice: 7450,
+                buttonUrl: 'https://app.lava.top/products/ef427dff-60a0-43d4-a131-c743d721829e'
+            },
+            'DEFAULT': {
+                name: 'Международный',
+                currency: 'EUR',
+                symbol: '€',
+                price: 29,
+                originalPrice: 145,
+                buttonUrl: 'https://secure.wayforpay.com/button/b287c7fbef7a4'
+            }
+        };
+
         // Fix timer to work properly
         function initializeCountdown() {
             const countdownElement = document.getElementById('countdown');
@@ -1857,6 +1934,50 @@
             }
         }
         
+        // Format price with proper spacing for large numbers
+        function formatPrice(price) {
+            return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+        }
+        
+        // Update all price displays based on country
+        function updatePrices(countryCode) {
+            const config = CURRENCY_CONFIG[countryCode] || CURRENCY_CONFIG.DEFAULT;
+            
+            // Update calculator section
+            document.getElementById('originalPrice').textContent = `${formatPrice(config.originalPrice)} ${config.symbol}`;
+            document.getElementById('specialPrice').textContent = `${formatPrice(config.price)} ${config.symbol}`;
+            document.getElementById('totalPrice').textContent = `Итого: ${formatPrice(config.price)} ${config.symbol}`;
+            
+            // Update price section
+            document.getElementById('pageOriginalPrice').textContent = `Обычная цена: ${formatPrice(config.originalPrice)} ${config.symbol}`;
+            document.getElementById('pageCurrentPrice').textContent = `Только сегодня: ${formatPrice(config.price)} ${config.symbol}`;
+            document.getElementById('pagePriceNote').textContent = `Экономия ${formatPrice(config.originalPrice - config.price)} ${config.symbol}! Предложение действует 24 часа.`;
+            
+            // Update comparison table
+            document.getElementById('comparisonPrice').textContent = `${formatPrice(config.price)} ${config.symbol}`;
+            
+            // Store the button URL for purchase
+            window.purchaseUrl = config.buttonUrl;
+            
+            // Hide loading overlay
+            document.getElementById('loadingOverlay').style.display = 'none';
+        }
+        
+        // Detect user country and set appropriate prices
+        function detectCountryAndSetPrices() {
+            fetch('https://ipapi.co/json/')
+                .then(response => response.json())
+                .then(data => {
+                    const countryCode = data.country_code;
+                    updatePrices(countryCode);
+                })
+                .catch(error => {
+                    console.error('Error detecting country:', error);
+                    // Fallback to default (EUR) if detection fails
+                    updatePrices('DEFAULT');
+                });
+        }
+        
         // Sticky CTA button functionality
         document.addEventListener('DOMContentLoaded', function() {
             initializeCountdown();
@@ -1865,6 +1986,9 @@
             // Update live activity every 45 seconds
             updateLiveActivity();
             setInterval(updateLiveActivity, 45000);
+            
+            // Detect country and set prices
+            detectCountryAndSetPrices();
             
             // Button click handlers
             const buttons = document.querySelectorAll('.final-btn, .sticky-btn');
@@ -1878,10 +2002,10 @@
                         commitment.checked = true;
                         // Brief pause to simulate commitment
                         setTimeout(() => {
-                            showPurchaseModal();
+                            redirectToPayment();
                         }, 500);
                     } else {
-                        showPurchaseModal();
+                        redirectToPayment();
                     }
                 });
             });
@@ -1903,8 +2027,13 @@
             }, 20000);
         });
         
-        function showPurchaseModal() {
-            alert('🎉 Поздравляем! Ваш персональный план похудения на 30 дней создан!\n\nВы получите доступ к персональному кабинету и анкете в ближайшие 5 минут на указанный email.\n\nСпасибо, что доверяете нам свое преображение!');
+        function redirectToPayment() {
+            if (window.purchaseUrl) {
+                window.location.href = window.purchaseUrl;
+            } else {
+                // Fallback if URL not set yet
+                setTimeout(redirectToPayment, 100);
+            }
         }
     </script>
 </body>
