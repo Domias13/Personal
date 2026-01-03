@@ -37,173 +37,82 @@
             padding: 0 20px;
         }
 
-        /* Sticky CTA Bar */
-        .sticky-cta {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(135deg, var(--secondary), #059669);
-            color: white;
-            padding: 15px 20px;
-            text-align: center;
-            z-index: 1000;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .sticky-price {
-            font-weight: 700;
-            font-size: 18px;
-        }
-
-        .sticky-btn {
-            background: white;
-            color: var(--secondary);
-            border: none;
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-weight: 700;
-            cursor: pointer;
-            font-size: 14px;
-        }
-
-        /* Bonus Section */
-        .bonus-section {
-            padding: 30px 0;
-            background: linear-gradient(135deg, #ffedd5, #fed7aa);
-            text-align: center;
-        }
-
-        .bonus-badge {
-            background: var(--danger);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: 700;
-            display: inline-block;
-            margin-bottom: 15px;
-            font-size: 14px;
-        }
-
-        .bonus-title {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-
-        .bonus-list {
-            max-width: 500px;
-            margin: 0 auto 20px;
-        }
-
-        .bonus-item {
+        /* === ЭКРАН ВЫБОРА СТРАНЫ === */
+        #countrySelectorScreen {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            margin-bottom: 10px;
-            color: var(--success);
-            font-weight: 600;
+            padding: 20px;
         }
 
-        .bonus-price {
-            font-size: 18px;
-            color: var(--gray);
-            text-decoration: line-through;
-        }
-
-        /* Price Calculator */
-        .calculator-section {
-            padding: 30px 0;
+        .country-selector {
             background: white;
+            border-radius: 24px;
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
             text-align: center;
         }
 
-        .calculator-card {
-            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
-            border-radius: 16px;
-            padding: 25px;
-            max-width: 500px;
-            margin: 0 auto;
-            border: 2px solid var(--primary);
-        }
-
-        .calculator-title {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--dark);
-        }
-
-        .calculator-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            font-size: 16px;
-        }
-
-        .calculator-label {
-            color: var(--gray);
-        }
-
-        .calculator-value {
-            font-weight: 700;
+        .logo-country {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 30px;
             color: var(--primary);
-        }
-
-        .calculator-total {
-            font-size: 24px;
-            font-weight: 800;
-            color: var(--success);
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 2px dashed #e5e7eb;
-        }
-
-        /* Price */
-        .price-section {
-            padding: 30px 0;
-            background: white;
-            text-align: center;
-        }
-
-        .original-price {
-            font-size: 20px;
-            color: var(--gray);
-            text-decoration: line-through;
-            margin-bottom: 10px;
-        }
-
-        .current-price {
-            font-size: 36px;
-            font-weight: 800;
-            margin-bottom: 10px;
-        }
-
-        .price-note {
-            font-size: 14px;
-            margin-bottom: 20px;
-        }
-
-        .price-features {
-            max-width: 400px;
-            margin: 0 auto 25px;
-        }
-
-        .price-feature {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            margin-bottom: 10px;
-            color: var(--success);
+            gap: 12px;
         }
 
-        /* Loading Overlay */
+        .logo-country i {
+            color: var(--accent);
+        }
+
+        .title-country {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: var(--dark);
+        }
+
+        .country-buttons {
+            display: grid;
+            gap: 16px;
+        }
+
+        .country-btn {
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            border: 2px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 20px;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--dark);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .country-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.2);
+            border-color: var(--primary);
+            background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+        }
+
+        .flag-ru { color: #d90429; }
+        .flag-ua { color: #0057b7; }
+        .flag-kz { color: #ffb700; }
+        .flag-other { color: #6b7280; }
+
+        /* === ЗАГРУЗКА === */
         .loading-overlay {
             position: fixed;
             top: 0;
@@ -239,18 +148,39 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Animations */
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-            100% { transform: scale(1); }
+        /* === ВСЕ СТИЛИ ЛЕНДИНГА ИЗ ПУСТОГО.PDF (БЕЗ !) === */
+        .sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, var(--secondary), #059669);
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            z-index: 1000;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .pulse {
-            animation: pulse 2s infinite;
+        .sticky-price {
+            font-weight: 700;
+            font-size: 18px;
         }
 
-        /* Остальные стили — без изменений */
+        .sticky-btn {
+            background: white;
+            color: var(--secondary);
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
         .header {
             text-align: center;
             padding: 30px 0 20px;
@@ -839,6 +769,136 @@
             color: var(--gray);
         }
 
+        .bonus-section {
+            padding: 30px 0;
+            background: linear-gradient(135deg, #ffedd5, #fed7aa);
+            text-align: center;
+        }
+
+        .bonus-badge {
+            background: var(--danger);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .bonus-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .bonus-list {
+            max-width: 500px;
+            margin: 0 auto 20px;
+        }
+
+        .bonus-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            color: var(--success);
+            font-weight: 600;
+        }
+
+        .bonus-price {
+            font-size: 18px;
+            color: var(--gray);
+            text-decoration: line-through;
+        }
+
+        .calculator-section {
+            padding: 30px 0;
+            background: white;
+            text-align: center;
+        }
+
+        .calculator-card {
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            border-radius: 16px;
+            padding: 25px;
+            max-width: 500px;
+            margin: 0 auto;
+            border: 2px solid var(--primary);
+        }
+
+        .calculator-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .calculator-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .calculator-label {
+            color: var(--gray);
+        }
+
+        .calculator-value {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .calculator-total {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--success);
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px dashed #e5e7eb;
+        }
+
+        .price-section {
+            padding: 30px 0;
+            background: white;
+            text-align: center;
+        }
+
+        .original-price {
+            font-size: 20px;
+            color: var(--gray);
+            text-decoration: line-through;
+            margin-bottom: 10px;
+        }
+
+        .current-price {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .price-note {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .price-features {
+            max-width: 400px;
+            margin: 0 auto 25px;
+        }
+
+        .price-feature {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            color: var(--success);
+        }
+
         .scarcity {
             text-align: center;
             padding: 20px;
@@ -958,16 +1018,6 @@
 
         .comparison-other {
             color: var(--danger);
-        }
-
-        .comparison-middle .comparison-header,
-        .comparison-middle .comparison-row {
-            grid-template-columns: 1fr;
-        }
-
-        .comparison-middle .comparison-label {
-            grid-column: 1;
-            text-align: center;
         }
 
         .risk-reversal {
@@ -1133,6 +1183,16 @@
             background: var(--light);
         }
 
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
         @media (min-width: 768px) {
             .hero-title { font-size: 36px; }
             .benefits-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1155,579 +1215,608 @@
     </style>
 </head>
 <body>
-    <!-- Loading Overlay -->
-    <div class="loading-overlay" id="loadingOverlay">
-        <div class="loading-spinner"></div>
-        <div class="loading-text">Определяем вашу страну и валюту...</div>
-    </div>
-
-    <!-- Sticky CTA Bar -->
-    <div class="sticky-cta">
-        <div class="sticky-price" id="stickyPrice">Специальная цена</div>
-        <button class="sticky-btn">Да, я хочу!</button>
-    </div>
-
-    <!-- Header -->
-    <div class="header">
-        <div class="header-content">
-            <div class="logo">
+    <!-- Экран выбора страны (показывается по умолчанию) -->
+    <div id="countrySelectorScreen">
+        <div class="country-selector">
+            <div class="logo-country">
                 <i class="fas fa-apple-alt"></i>
                 Fit30Days
             </div>
-            <h1 class="hero-title">Измени Свое Тело за 30 Дней — Без Диет и Голодовок!</h1>
-            <p class="hero-subtitle">Персональный план похудения, созданный диетологами и психологами. Результат гарантирован!</p>
+            <h1 class="title-country">Выберите вашу страну</h1>
+            <div class="country-buttons">
+                <button class="country-btn" data-country="RU">
+                    <i class="fas fa-flag flag-ru"></i>
+                    Россия
+                </button>
+                <button class="country-btn" data-country="UA">
+                    <i class="fas fa-flag flag-ua"></i>
+                    Украина
+                </button>
+                <button class="country-btn" data-country="KZ">
+                    <i class="fas fa-flag flag-kz"></i>
+                    Казахстан
+                </button>
+                <button class="country-btn" data-country="DEFAULT">
+                    <i class="fas fa-flag flag-other"></i>
+                    Другие страны
+                </button>
+            </div>
         </div>
     </div>
 
-    <!-- Live Activity -->
-    <div class="live-activity">
-        <i class="fas fa-bolt"></i> 
-        <span>Марина из Москвы только что приобрела план</span>
-        <span class="time">2 минуты назад</span>
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Загружаем ваш персональный план...</div>
     </div>
 
-    <!-- Trust Badges -->
-    <div class="trust-badges" style="display: flex; justify-content: center; gap: 20px; padding: 15px 0; background: white; flex-wrap: wrap;">
-        <div class="badge" style="display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--gray);">
-            <i class="fas fa-shield-alt" style="color: var(--success); font-size: 14px;"></i>
-            <span>Безопасная оплата</span>
+    <!-- Полный лендинг (из Пустой.pdf) -->
+    <div id="fullLanding" style="display: none;">
+        <!-- Sticky CTA -->
+        <div class="sticky-cta">
+            <div class="sticky-price" id="stickyPrice">Специальная цена</div>
+            <button class="sticky-btn" id="stickyBtn">Да, я хочу!</button>
         </div>
-        <div class="badge" style="display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--gray);">
-            <i class="fas fa-sync-alt" style="color: var(--success); font-size: 14px;"></i>
-            <span>30 дней гарантии</span>
-        </div>
-        <div class="badge" style="display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--gray);">
-            <i class="fas fa-headset" style="color: var(--success); font-size: 14px;"></i>
-            <span>Поддержка 24/7</span>
-        </div>
-        <div class="badge" style="display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--gray);">
-            <i class="fas fa-lock" style="color: var(--success); font-size: 14px;"></i>
-            <span>Конфиденциально</span>
-        </div>
-    </div>
 
-    <!-- Trust Meter -->
-    <div class="trust-meter">
-        <div class="trust-text">94% клиентов рекомендуют нас друзьям</div>
-        <div class="meter-container">
-            <div class="meter-fill"></div>
-        </div>
-    </div>
-
-    <!-- Social Proof -->
-    <div class="social-proof">
-        <p class="proof-text">Более <span class="proof-count">2,847</span> женщин уже преобразились с нашим планом!</p>
-    </div>
-
-    <!-- Problem Section -->
-    <section class="problem-section">
-        <div class="container">
-            <h2 class="problem-title">Знакомо?</h2>
-            <div class="problem-list">
-                <div class="problem-item">
-                    <i class="fas fa-times-circle"></i>
-                    <span>Пробуешь диеты, но срываешься через неделю</span>
+        <!-- Header -->
+        <div class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-apple-alt"></i>
+                    Fit30Days
                 </div>
-                <div class="problem-item">
-                    <i class="fas fa-times-circle"></i>
-                    <span>Тренируешься в зале, но вес стоит на месте</span>
-                </div>
-                <div class="problem-item">
-                    <i class="fas fa-times-circle"></i>
-                    <span>Не хватает мотивации и поддержки</span>
-                </div>
-                <div class="problem-item">
-                    <i class="fas fa-times-circle"></i>
-                    <span>Питание однообразное и скучное</span>
-                </div>
-            </div>
-            <h3 class="solution-title">Представляем решение, которое работает!</h3>
-            <p class="solution-text">Наш 30-дневный персональный план похудения учитывает твои индивидуальные особенности, образ жизни, пищевые предпочтения и психологические барьеры. Это не просто диета — это система, которая меняет твое отношение к еде и телу навсегда!</p>
-        </div>
-    </section>
-
-    <!-- Video Section -->
-    <section class="video-section">
-        <div class="container">
-            <h2 class="section-title">Посмотри, что говорит создатель программы</h2>
-            <div class="video-container">
-                <div class="video-placeholder">
-                    <div class="video-icon">
-                        <i class="fas fa-video"></i>
-                    </div>
-                    <div class="video-title">Дарья Петрова</div>
-                    <div class="video-desc">Сертифицированный диетолог, автор методики</div>
-                </div>
-                <div class="play-btn">
-                    <i class="fas fa-play play-icon"></i>
-                </div>
-            </div>
-            <p style="margin-top: 20px; color: var(--gray);">Видео 1:45 минут • Реальная история создания программы</p>
-        </div>
-    </section>
-
-    <!-- Before After Gallery -->
-    <section class="before-after-section">
-        <div class="container">
-            <h2 class="section-title">Реальные Результаты "До и После"</h2>
-            <div class="before-after-grid">
-                <div class="before-after-item">
-                    <div class="before-after-photos">
-                        <div class="photo-placeholder">ДО</div>
-                        <div class="photo-placeholder">ПОСЛЕ</div>
-                    </div>
-                    <div class="before-after-stats">-7 кг за 30 дней</div>
-                    <div class="before-after-name">Анна, 28 лет</div>
-                    <p class="before-after-text">"Вернула фигуру до беременности и научилась любить правильное питание!"</p>
-                </div>
-                <div class="before-after-item">
-                    <div class="before-after-photos">
-                        <div class="photo-placeholder">ДО</div>
-                        <div class="photo-placeholder">ПОСЛЕ</div>
-                    </div>
-                    <div class="before-after-stats">-12 кг за 30 дней</div>
-                    <div class="before-after-name">Мария, 34 года</div>
-                    <p class="before-after-text">"Муж не узнал меня! Теперь я чувствую себя уверенно в любом наряде."</p>
-                </div>
-            </div>
-            <p style="text-align: center; margin-top: 20px; color: var(--primary); font-weight: 700;">
-                <a href="#" style="text-decoration: none; color: inherit;">Посмотреть еще 50+ результатов →</a>
-            </p>
-        </div>
-    </section>
-
-    <!-- Benefits -->
-    <section class="benefits">
-        <div class="container">
-            <h2 class="section-title">Что Ты Получишь?</h2>
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-utensils"></i>
-                    </div>
-                    <h3 class="benefit-title">Персональное Меню</h3>
-                    <p class="benefit-desc">Питание под твой вкус, бюджет и образ жизни. Более 500 рецептов без голодовок!</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-dumbbell"></i>
-                    </div>
-                    <h3 class="benefit-title">Тренировки</h3>
-                    <p class="benefit-desc">Дома без оборудования, 15-20 минут в день. Видеоинструкции и прогрессия нагрузки.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3 class="benefit-title">Психологическая Поддержка</h3>
-                    <p class="benefit-desc">Мотивационные чек-листы, аффирмации и техники преодоления пищевой зависимости.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3 class="benefit-title">Прогресс в Режиме Реального Времени</h3>
-                    <p class="benefit-desc">Отслеживай свои достижения каждый день и получай персонализированные рекомендации.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3 class="benefit-title">Закрытая Поддержка</h3>
-                    <p class="benefit-desc">Группа единомышленников и прямой доступ к диетологу и психологу.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-gift"></i>
-                    </div>
-                    <h3 class="benefit-title">Бонусы</h3>
-                    <p class="benefit-desc">Гайд по осознанному питанию, чек-листы и планировщики на 6 месяцев вперед!</p>
-                </div>
+                <h1 class="hero-title">Измени Свое Тело за 30 Дней — Без Диет и Голодовок!</h1>
+                <p class="hero-subtitle">Персональный план похудения, созданный диетологами и психологами. Результат гарантирован!</p>
             </div>
         </div>
-    </section>
 
-    <!-- How It Works -->
-    <section class="how-it-works">
-        <div class="container">
-            <h2 class="section-title">Как Это Работает?</h2>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h4>Заполняешь анкету</h4>
-                        <p>Рассказываешь о своих целях, образе жизни, пищевых предпочтениях и ограничениях</p>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h4>Получаешь план</h4>
-                        <p>В течение 24 часов наша команда создает твой персональный план на 30 дней</p>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h4>Начинаешь преображение</h4>
-                        <p>Следуешь простым инструкциям, получаешь поддержку и видишь результаты уже на первой неделе</p>
-                    </div>
-                </div>
+        <!-- Live Activity -->
+        <div class="live-activity">
+            <i class="fas fa-bolt"></i>
+            <span>Марина из Москвы только что приобрела план</span>
+            <span class="time">2 минуты назад</span>
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="trust-badges" style="display: flex; justify-content: center; gap: 20px; padding: 15px 0; background: white; flex-wrap: wrap;">
+            <div class="badge" style="display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--gray);">
+                <i class="fas fa-shield-alt" style="color: var(--success); font-size: 14px;"></i>
+                <span>Безопасная оплата</span>
+            </div>
+            <div class="badge" style="display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--gray);">
+                <i class="fas fa-sync-alt" style="color: var(--success); font-size: 14px;"></i>
+                <span>30 дней гарантии</span>
+            </div>
+            <div class="badge" style="display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--gray);">
+                <i class="fas fa-headset" style="color: var(--success); font-size: 14px;"></i>
+                <span>Поддержка 24/7</span>
+            </div>
+            <div class="badge" style="display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--gray);">
+                <i class="fas fa-lock" style="color: var(--success); font-size: 14px;"></i>
+                <span>Конфиденциально</span>
             </div>
         </div>
-    </section>
 
-    <!-- Expert Team -->
-    <section class="team-section">
-        <div class="container">
-            <h2 class="section-title">Твоя Команда Экспертов</h2>
-            <div class="team-grid">
-                <div class="team-member">
-                    <img src="image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' fill='%234f46e5'/%3E%3Ccircle cx='40' cy='30' r='12' fill='white'/%3E%3Cpath d='M25 50 Q40 65 55 50' stroke='white' stroke-width='3' fill='none'/%3E%3C/svg%3E" alt="Дарья Петрова" class="member-avatar">
-                    <h3 class="member-name">Дарья Петрова</h3>
-                    <p class="member-title">Сертифицированный диетолог</p>
-                    <p class="member-desc">10 лет опыта, помогла более 1000 женщинам достичь идеального веса без вреда для здоровья.</p>
-                </div>
-                <div class="team-member">
-                    <img src="image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' fill='%2310b981'/%3E%3Ccircle cx='40' cy='30' r='12' fill='white'/%3E%3Cpath d='M25 50 Q40 65 55 50' stroke='white' stroke-width='3' fill='none'/%3E%3C/svg%3E" alt="Полина Смирнова" class="member-avatar">
-                    <h3 class="member-name">Полина Смирнова</h3>
-                    <p class="member-title">Психолог питания</p>
-                    <p class="member-desc">Специализируется на преодолении эмоционального переедания и формировании здоровых пищевых привычек.</p>
-                </div>
+        <!-- Trust Meter -->
+        <div class="trust-meter">
+            <div class="trust-text">94% клиентов рекомендуют нас друзьям</div>
+            <div class="meter-container">
+                <div class="meter-fill"></div>
             </div>
         </div>
-    </section>
 
-    <!-- Science Behind -->
-    <section class="science-section">
-        <div class="container">
-            <div class="science-content">
-                <h3 class="science-title">Научно Обоснованный Подход</h3>
-                <p class="science-text">Наш метод основан на последних исследованиях в области нутрициологии, психологии питания и физиологии похудения. Мы не используем модные диеты, которые вредят здоровью.</p>
-                <div class="science-points">
-                    <div class="science-point">
-                        <i class="fas fa-check-circle"></i>
-                        <span><strong>Калорийный дефицит без стресса</strong> — рассчитываем идеальный баланс для комфортного похудения 0.5-1 кг в неделю</span>
+        <!-- Social Proof -->
+        <div class="social-proof">
+            <p class="proof-text">Более<span class="proof-count">2,847</span> женщин уже преобразились с нашим планом!</p>
+        </div>
+
+        <!-- Problem Section -->
+        <section class="problem-section">
+            <div class="container">
+                <h2 class="problem-title">Знакомо?</h2>
+                <div class="problem-list">
+                    <div class="problem-item">
+                        <i class="fas fa-times-circle"></i>
+                        <span>Пробуешь диеты, но срываешься через неделю</span>
                     </div>
-                    <div class="science-point">
-                        <i class="fas fa-check-circle"></i>
-                        <span><strong>Баланс макронутриентов</strong> — правильное соотношение белков, жиров и углеводов для сохранения мышечной массы</span>
+                    <div class="problem-item">
+                        <i class="fas fa-times-circle"></i>
+                        <span>Тренируешься в зале, но вес стоит на месте</span>
                     </div>
-                    <div class="science-point">
-                        <i class="fas fa-check-circle"></i>
-                        <span><strong>Психология привычек</strong> — формируем устойчивые пищевые привычки, а не временную диету</span>
+                    <div class="problem-item">
+                        <i class="fas fa-times-circle"></i>
+                        <span>Не хватает мотивации и поддержки</span>
                     </div>
-                    <div class="science-point">
-                        <i class="fas fa-check-circle"></i>
-                        <span><strong>Адаптивные тренировки</strong> — прогрессивная нагрузка, которая развивается вместе с твоими возможностями</span>
+                    <div class="problem-item">
+                        <i class="fas fa-times-circle"></i>
+                        <span>Питание однообразное и скучное</span>
                     </div>
                 </div>
+                <h3 class="solution-title">Представляем решение, которое работает!</h3>
+                <p class="solution-text">Наш 30-дневный персональный план похудения учитывает твои индивидуальные особенности, образ жизни, пищевые предпочтения и психологические барьеры. Это не просто диета — это система, которая меняет твое отношение к еде и телу навсегда!</p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Results Stats -->
-    <section class="results-section">
-        <div class="container">
-            <h2 class="results-title">Реальные Результаты Наших Клиенток</h2>
-            <div class="results-grid">
-                <div class="result-item">
-                    <div class="result-stats">
-                        <div class="result-stat">
-                            <div class="result-value">7 кг</div>
-                            <div class="result-label">Потеря веса</div>
+        <!-- Video Section -->
+        <section class="video-section">
+            <div class="container">
+                <h2 class="section-title">Посмотри, что говорит создатель программы</h2>
+                <div class="video-container">
+                    <div class="video-placeholder">
+                        <div class="video-icon">
+                            <i class="fas fa-video"></i>
                         </div>
-                        <div class="result-stat">
-                            <div class="result-value">30 дн.</div>
-                            <div class="result-label">Срок</div>
+                        <div class="video-title">Дарья Петрова</div>
+                        <div class="video-desc">Сертифицированный диетолог, автор методики</div>
+                    </div>
+                    <div class="play-btn">
+                        <i class="fas fa-play play-icon"></i>
+                    </div>
+                </div>
+                <p style="margin-top: 20px; color: var(--gray);">Видео 1:45 минут • Реальная история создания программы</p>
+            </div>
+        </section>
+
+        <!-- Before After Gallery -->
+        <section class="before-after-section">
+            <div class="container">
+                <h2 class="section-title">Реальные Результаты "До и После"</h2>
+                <div class="before-after-grid">
+                    <div class="before-after-item">
+                        <div class="before-after-photos">
+                            <div class="photo-placeholder">ДО</div>
+                            <div class="photo-placeholder">ПОСЛЕ</div>
+                        </div>
+                        <div class="before-after-stats">-7 кг за 30 дней</div>
+                        <div class="before-after-name">Анна, 28 лет</div>
+                        <p class="before-after-text">"Вернула фигуру до беременности и научилась любить правильное питание!"</p>
+                    </div>
+                    <div class="before-after-item">
+                        <div class="before-after-photos">
+                            <div class="photo-placeholder">ДО</div>
+                            <div class="photo-placeholder">ПОСЛЕ</div>
+                        </div>
+                        <div class="before-after-stats">-12 кг за 30 дней</div>
+                        <div class="before-after-name">Мария, 34 года</div>
+                        <p class="before-after-text">"Муж не узнал меня! Теперь я чувствую себя уверенно в любом наряде."</p>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 20px; color: var(--primary); font-weight: 700;">
+                    <a href="#" style="text-decoration: none; color: inherit;">Посмотреть еще 50+ результатов →</a>
+                </p>
+            </div>
+        </section>
+
+        <!-- Benefits -->
+        <section class="benefits">
+            <div class="container">
+                <h2 class="section-title">Что Ты Получишь?</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3 class="benefit-title">Персональное Меню</h3>
+                        <p class="benefit-desc">Питание под твой вкус, бюджет и образ жизни. Более 500 рецептов без голодовок!</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-dumbbell"></i>
+                        </div>
+                        <h3 class="benefit-title">Тренировки</h3>
+                        <p class="benefit-desc">Дома без оборудования, 15-20 минут в день. Видеоинструкции и прогрессия нагрузки.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="benefit-title">Психологическая Поддержка</h3>
+                        <p class="benefit-desc">Мотивационные чек-листы, аффирмации и техники преодоления пищевой зависимости.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="benefit-title">Прогресс в Режиме Реального Времени</h3>
+                        <p class="benefit-desc">Отслеживай свои достижения каждый день и получай персонализированные рекомендации.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="benefit-title">Закрытая Поддержка</h3>
+                        <p class="benefit-desc">Группа единомышленников и прямой доступ к диетологу и психологу.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <h3 class="benefit-title">Бонусы</h3>
+                        <p class="benefit-desc">Гайд по осознанному питанию, чек-листы и планировщики на 6 месяцев вперед!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section class="how-it-works">
+            <div class="container">
+                <h2 class="section-title">Как Это Работает?</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Заполняешь анкету</h4>
+                            <p>Рассказываешь о своих целях, образе жизни, пищевых предпочтениях и ограничениях</p>
                         </div>
                     </div>
-                    <p class="result-text">"Улучшилось самочувствие, исчезла усталость, появилась энергия для детей!"</p>
-                </div>
-                <div class="result-item">
-                    <div class="result-stats">
-                        <div class="result-stat">
-                            <div class="result-value">12 кг</div>
-                            <div class="result-label">Потеря веса</div>
-                        </div>
-                        <div class="result-stat">
-                            <div class="result-value">30 дн.</div>
-                            <div class="result-label">Срок</div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Получаешь план</h4>
+                            <p>В течение 24 часов наша команда создает твой персональный план на 30 дней</p>
                         </div>
                     </div>
-                    <p class="result-text">"Вернула фигуру до беременности и научилась любить правильное питание!"</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="testimonials">
-        <div class="container">
-            <h2 class="section-title">Истории Преображения</h2>
-            <div class="testimonial-card">
-                <img src="image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Crect width='60' height='60' fill='%234f46e5'/%3E%3Ccircle cx='30' cy='22' r='8' fill='white'/%3E%3Cpath d='M18 38 Q30 48 42 38' stroke='white' stroke-width='2' fill='none'/%3E%3C/svg%3E" alt="Анна" class="testimonial-avatar">
-                <div class="testimonial-content">
-                    <div class="testimonial-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">"За 30 дней я сбросила 7 кг и наконец-то полюбила свое тело! План настолько простой, что я выполняю его с удовольствием каждый день! Самое главное — я больше не чувствую себя виноватой за еду. Это изменило мою жизнь!"</p>
-                    <p class="testimonial-author">Анна, 28 лет</p>
-                    <div class="testimonial-stats">
-                        <span>До: 78 кг</span>
-                        <span>После: 71 кг</span>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Начинаешь преображение</h4>
+                            <p>Следуешь простым инструкциям, получаешь поддержку и видишь результаты уже на первой неделе</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="testimonial-card">
-                <img src="image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Crect width='60' height='60' fill='%23ef4444'/%3E%3Ccircle cx='30' cy='22' r='8' fill='white'/%3E%3Cpath d='M18 38 Q30 48 42 38' stroke='white' stroke-width='2' fill='none'/%3E%3C/svg%3E" alt="Мария" class="testimonial-avatar">
-                <div class="testimonial-content">
-                    <div class="testimonial-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+        </section>
+
+        <!-- Expert Team -->
+        <section class="team-section">
+            <div class="container">
+                <h2 class="section-title">Твоя Команда Экспертов</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' fill='%234f46e5'/%3E%3Ccircle cx='40' cy='30' r='12' fill='white'/%3E%3Cpath d='M25 50 Q40 65 55 50' stroke='white' stroke-width='3' fill='none'/%3E%3C/svg%3E" alt="Дарья Петрова" class="member-avatar">
+                        <h3 class="member-name">Дарья Петрова</h3>
+                        <p class="member-title">Сертифицированный диетолог</p>
+                        <p class="member-desc">10 лет опыта, помогла более 1000 женщинам достичь идеального веса без вреда для здоровья.</p>
                     </div>
-                    <p class="testimonial-text">"Никогда раньше не могла похудеть. Пробовала все диеты — от кефирной до кето. Этот план изменил все! Мой муж даже не узнал меня на фотографии через месяц! А самое удивительное — я ем все, что люблю, просто в правильных пропорциях и времени."</p>
-                    <p class="testimonial-author">Мария, 34 года</p>
-                    <div class="testimonial-stats">
-                        <span>До: 86 кг</span>
-                        <span>После: 74 кг</span>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <img src="image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Crect width='60' height='60' fill='%23f59e0b'/%3E%3Ccircle cx='30' cy='22' r='8' fill='white'/%3E%3Cpath d='M18 38 Q30 48 42 38' stroke='white' stroke-width='2' fill='none'/%3E%3C/svg%3E" alt="Елена" class="testimonial-avatar">
-                <div class="testimonial-content">
-                    <div class="testimonial-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">"Как мама троих детей, у меня никогда не было времени на себя. Этот план идеально вписался в мой график. Тренировки по 15 минут, когда дети спят, и простые рецепты, которые нравятся всей семье. За месяц я вернула себе фигуру до беременности!"</p>
-                    <p class="testimonial-author">Елена, 31 год</p>
-                    <div class="testimonial-stats">
-                        <span>До: 82 кг</span>
-                        <span>После: 73 кг</span>
+                    <div class="team-member">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' fill='%2310b981'/%3E%3Ccircle cx='40' cy='30' r='12' fill='white'/%3E%3Cpath d='M25 50 Q40 65 55 50' stroke='white' stroke-width='3' fill='none'/%3E%3C/svg%3E" alt="Полина Смирнова" class="member-avatar">
+                        <h3 class="member-name">Полина Смирнова</h3>
+                        <p class="member-title">Психолог питания</p>
+                        <p class="member-desc">Специализируется на преодолении эмоционального переедания и формировании здоровых пищевых привычек.</p>
                     </div>
                 </div>
             </div>
+        </section>
+
+        <!-- Science Behind -->
+        <section class="science-section">
+            <div class="container">
+                <div class="science-content">
+                    <h3 class="science-title">Научно Обоснованный Подход</h3>
+                    <p class="science-text">Наш метод основан на последних исследованиях в области нутрициологии, психологии питания и физиологии похудения. Мы не используем модные диеты, которые вредят здоровью.</p>
+                    <div class="science-points">
+                        <div class="science-point">
+                            <i class="fas fa-check-circle"></i>
+                            <span><strong>Калорийный дефицит без стресса</strong> — рассчитываем идеальный баланс для комфортного похудения 0.5-1 кг в неделю</span>
+                        </div>
+                        <div class="science-point">
+                            <i class="fas fa-check-circle"></i>
+                            <span><strong>Баланс макронутриентов</strong> — правильное соотношение белков, жиров и углеводов для сохранения мышечной массы</span>
+                        </div>
+                        <div class="science-point">
+                            <i class="fas fa-check-circle"></i>
+                            <span><strong>Психология привычек</strong> — формируем устойчивые пищевые привычки, а не временную диету</span>
+                        </div>
+                        <div class="science-point">
+                            <i class="fas fa-check-circle"></i>
+                            <span><strong>Адаптивные тренировки</strong> — прогрессивная нагрузка, которая развивается вместе с твоими возможностями</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Stats -->
+        <section class="results-section">
+            <div class="container">
+                <h2 class="results-title">Реальные Результаты Наших Клиенток</h2>
+                <div class="results-grid">
+                    <div class="result-item">
+                        <div class="result-stats">
+                            <div class="result-stat">
+                                <div class="result-value">7 кг</div>
+                                <div class="result-label">Потеря веса</div>
+                            </div>
+                            <div class="result-stat">
+                                <div class="result-value">30 дн.</div>
+                                <div class="result-label">Срок</div>
+                            </div>
+                        </div>
+                        <p class="result-text">"Улучшилось самочувствие, исчезла усталость, появилась энергия для детей!"</p>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-stats">
+                            <div class="result-stat">
+                                <div class="result-value">12 кг</div>
+                                <div class="result-label">Потеря веса</div>
+                            </div>
+                            <div class="result-stat">
+                                <div class="result-value">30 дн.</div>
+                                <div class="result-label">Срок</div>
+                            </div>
+                        </div>
+                        <p class="result-text">"Вернула фигуру до беременности и научилась любить правильное питание!"</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials">
+            <div class="container">
+                <h2 class="section-title">Истории Преображения</h2>
+                <div class="testimonial-card">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Crect width='60' height='60' fill='%234f46e5'/%3E%3Ccircle cx='30' cy='22' r='8' fill='white'/%3E%3Cpath d='M18 38 Q30 48 42 38' stroke='white' stroke-width='2' fill='none'/%3E%3C/svg%3E" alt="Анна" class="testimonial-avatar">
+                    <div class="testimonial-content">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"За 30 дней я сбросила 7 кг и наконец-то полюбила свое тело! План настолько простой, что я выполняю его с удовольствием каждый день! Самое главное — я больше не чувствую себя виноватой за еду. Это изменило мою жизнь!"</p>
+                        <p class="testimonial-author">Анна, 28 лет</p>
+                        <div class="testimonial-stats">
+                            <span>До: 78 кг</span>
+                            <span>После: 71 кг</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Crect width='60' height='60' fill='%23ef4444'/%3E%3Ccircle cx='30' cy='22' r='8' fill='white'/%3E%3Cpath d='M18 38 Q30 48 42 38' stroke='white' stroke-width='2' fill='none'/%3E%3C/svg%3E" alt="Мария" class="testimonial-avatar">
+                    <div class="testimonial-content">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Никогда раньше не могла похудеть. Пробовала все диеты — от кефирной до кето. Этот план изменил все! Мой муж даже не узнал меня на фотографии через месяц! А самое удивительное — я ем все, что люблю, просто в правильных пропорциях и времени."</p>
+                        <p class="testimonial-author">Мария, 34 года</p>
+                        <div class="testimonial-stats">
+                            <span>До: 86 кг</span>
+                            <span>После: 74 кг</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Crect width='60' height='60' fill='%23f59e0b'/%3E%3Ccircle cx='30' cy='22' r='8' fill='white'/%3E%3Cpath d='M18 38 Q30 48 42 38' stroke='white' stroke-width='2' fill='none'/%3E%3C/svg%3E" alt="Елена" class="testimonial-avatar">
+                    <div class="testimonial-content">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Как мама троих детей, у меня никогда не было времени на себя. Этот план идеально вписался в мой график. Тренировки по 15 минут, когда дети спят, и простые рецепты, которые нравятся всей семье. За месяц я вернула себе фигуру до беременности!"</p>
+                        <p class="testimonial-author">Елена, 31 год</p>
+                        <div class="testimonial-stats">
+                            <span>До: 82 кг</span>
+                            <span>После: 73 кг</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bonus Section -->
+        <section class="bonus-section">
+            <div class="container">
+                <div class="bonus-badge">ТОЛЬКО СЕГОДНЯ!</div>
+                <h3 class="bonus-title">Бонусы для Первых 5 Покупателей</h3>
+                <div class="bonus-list" id="bonusList"></div>
+                <p class="bonus-price" id="bonusTotalPrice"></p>
+            </div>
+        </section>
+
+        <!-- Scarcity -->
+        <div class="scarcity">
+            <p class="scarcity-text">⚠ ВНИМАНИЕ: Осталось всего<span class="spots-left" id="spotsLeft">3</span> места по специальной цене!</p>
         </div>
-    </section>
 
-    <!-- Bonus Section -->
-    <section class="bonus-section">
-        <div class="container">
-            <div class="bonus-badge">ТОЛЬКО СЕГОДНЯ!</div>
-            <h3 class="bonus-title">Бонусы для Первых 5 Покупателей</h3>
-            <div class="bonus-list" id="bonusList">
-                <!-- Dynamically filled -->
+        <!-- Timer -->
+        <section class="timer-section">
+            <div class="container">
+                <h3 class="timer-title">Специальное предложение заканчивается через:</h3>
+                <div class="timer" id="countdown">
+                    <div class="timer-unit">
+                        <span class="timer-value" id="hours">23</span>
+                        <span class="timer-label">ЧАСОВ</span>
+                    </div>
+                    <div class="timer-unit">
+                        <span class="timer-value" id="minutes">59</span>
+                        <span class="timer-label">МИНУТ</span>
+                    </div>
+                    <div class="timer-unit">
+                        <span class="timer-value" id="seconds">59</span>
+                        <span class="timer-label">СЕКУНД</span>
+                    </div>
+                </div>
+                <p style="font-size: 14px; opacity: 0.8; margin-top: 10px;">Предложение автоматически обновится в полночь</p>
             </div>
-            <p class="bonus-price" id="bonusTotalPrice"></p>
+        </section>
+
+        <!-- Price Calculator -->
+        <section class="calculator-section">
+            <div class="container">
+                <div class="calculator-card">
+                    <h3 class="calculator-title">Твоя Выгода</h3>
+                    <div class="calculator-row">
+                        <span class="calculator-label">Обычная цена:</span>
+                        <span class="calculator-value" id="originalPrice">145 €</span>
+                    </div>
+                    <div class="calculator-row">
+                        <span class="calculator-label">Специальная цена:</span>
+                        <span class="calculator-value" id="specialPrice">29 €</span>
+                    </div>
+                    <div class="calculator-row">
+                        <span class="calculator-label">Экономия:</span>
+                        <span class="calculator-value" style="color: var(--success);" id="savingsAmount">116 €</span>
+                    </div>
+                    <div class="calculator-row">
+                        <span class="calculator-label">Стоимость в день:</span>
+                        <span class="calculator-value" style="color: var(--primary);" id="dailyCost">1 €</span>
+                    </div>
+                    <div class="calculator-total" id="totalPrice">
+                        Итого: 29 €
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Price -->
+        <section class="price-section">
+            <div class="container">
+                <p class="original-price" id="pageOriginalPrice">Обычная цена: 145 €</p>
+                <p class="current-price pulse" id="pageCurrentPrice">Только сегодня: 29 €</p>
+                <p class="price-note" id="pagePriceNote">Экономия 116 €! Предложение действует 24 часа.</p>
+                <div class="price-features">
+                    <div class="price-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Персональный план на 30 дней</span>
+                    </div>
+                    <div class="price-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Поддержка диетолога и психолога</span>
+                    </div>
+                    <div class="price-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Доступ к закрытому сообществу</span>
+                    </div>
+                    <div class="price-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Бонусные материалы на 6 месяцев</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Table -->
+        <section class="comparison-section">
+            <div class="container">
+                <h2 class="comparison-title">Почему Наш План Лучше?</h2>
+                <div class="comparison-table">
+                    <div class="comparison-header">
+                        <div>Параметр</div>
+                        <div>Наш план</div>
+                        <div>Альтернативы</div>
+                    </div>
+                    <div class="comparison-row">
+                        <div class="comparison-label">Стоимость</div>
+                        <div class="comparison-value comparison-our" id="comparisonPrice">29 €</div>
+                        <div class="comparison-value comparison-other" id="alternativePrice">От 150 €</div>
+                    </div>
+                    <div class="comparison-row">
+                        <div class="comparison-label">Результат</div>
+                        <div class="comparison-value comparison-our">Гарантирован</div>
+                        <div class="comparison-value comparison-other">Не гарантирован</div>
+                    </div>
+                    <div class="comparison-row">
+                        <div class="comparison-label">Поддержка</div>
+                        <div class="comparison-value comparison-our">24/7+ эксперты</div>
+                        <div class="comparison-value comparison-other">Ограниченная</div>
+                    </div>
+                    <div class="comparison-row">
+                        <div class="comparison-label">Риск</div>
+                        <div class="comparison-value comparison-our">Нет (гарантия)</div>
+                        <div class="comparison-value comparison-other">Высокий</div>
+                    </div>
+                    <div class="comparison-row">
+                        <div class="comparison-label">Персонализация</div>
+                        <div class="comparison-value comparison-our">Под твои особенности</div>
+                        <div class="comparison-value comparison-other">Общие рекомендации</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Risk Reversal -->
+        <section class="risk-reversal">
+            <div class="container">
+                <div class="risk-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3 class="risk-title">100% Гарантия Возврата Денег</h3>
+                <p class="risk-text">Если ты честно выполнишь все рекомендации плана в течение 30 дней и не увидишь никаких результатов — ни визуальных, ни в самочувствии — мы вернем тебе полную стоимость. Без вопросов и бюрократии. За 2 года у нас не было ни одного случая возврата!</p>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq-section">
+            <div class="container">
+                <h2 class="section-title">Частые Вопросы</h2>
+                <div class="faq-item">
+                    <div class="faq-question">Будет ли мне голодно во время плана?</div>
+                    <p class="faq-answer">Абсолютно нет! Мы рассчитываем калорийность так, чтобы ты получала достаточно энергии для комфортного самочувствия. Большинство наших клиентов отмечают, что чувствуют себя даже лучше, чем до начала плана.</p>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Что если у меня есть медицинские противопоказания?</div>
+                    <p class="faq-answer">В анкете ты укажешь все свои ограничения и противопоказания. Наши диетологи создадут план с учетом твоего здоровья. При серьезных заболеваниях мы рекомендуем проконсультироваться с лечащим врачом.</p>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Как быстро я увижу результаты?</div>
+                    <p class="faq-answer">Первые изменения ты заметишь уже на первой неделе — улучшится самочувствие, исчезнет вздутие, появится энергия. Визуальные изменения обычно становятся заметны через 2-3 недели. Главное — регулярность!</p>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Что входит в гарантию возврата денег?</div>
+                    <p class="faq-answer">Если ты честно выполняла все рекомендации плана в течение 30 дней и не получила никакого результата (ни визуального, ни в самочувствии), мы вернем тебе полную стоимость. За 2 года у нас не было ни одного случая возврата!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Micro Commitment -->
+        <section class="commitment-section">
+            <div class="container">
+                <p class="commitment-text">Готова ли ты уже сегодня сделать шаг к новому телу?</p>
+                <div class="commitment-checkbox">
+                    <input type="checkbox" id="commitment">
+                    <label for="commitment">Да, я готова инвестировать в себя и свое здоровье!</label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="final-cta">
+            <div class="container">
+                <h3 class="final-title">Да, я хочу новое тело!</h3>
+                <p class="final-subtitle">Последние 3 места по специальной цене</p>
+                <a href="#" class="final-btn" id="purchaseButton">
+                    Начать преображение
+                </a>
+                <div class="payment-methods">
+                    <span class="payment-method">💳</span>
+                    <span class="payment-method">📱</span>
+                    <span class="payment-method">🔒</span>
+                </div>
+                <p class="final-guarantee">
+                    <i class="fas fa-shield-alt"></i> Безопасная оплата • Мгновенный доступ • Гарантия 30 дней
+                </p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>&copy; 2026 Fit30Days. Все права защищены.</p>
+            <p>Результаты могут отличаться. Индивидуальные особенности организма учитываются.</p>
+            <p>Перед началом любой программы похудения рекомендуется проконсультироваться с врачом.</p>
         </div>
-    </section>
-
-    <!-- Scarcity -->
-    <div class="scarcity">
-        <p class="scarcity-text">⚠️ ВНИМАНИЕ: Осталось всего <span class="spots-left" id="spotsLeft">3</span> места по специальной цене!</p>
-    </div>
-
-    <!-- Timer -->
-    <section class="timer-section">
-        <div class="container">
-            <h3 class="timer-title">Специальное предложение заканчивается через:</h3>
-            <div class="timer" id="countdown">
-                <div class="timer-unit">
-                    <span class="timer-value" id="hours">23</span>
-                    <span class="timer-label">ЧАСОВ</span>
-                </div>
-                <div class="timer-unit">
-                    <span class="timer-value" id="minutes">59</span>
-                    <span class="timer-label">МИНУТ</span>
-                </div>
-                <div class="timer-unit">
-                    <span class="timer-value" id="seconds">59</span>
-                    <span class="timer-label">СЕКУНД</span>
-                </div>
-            </div>
-            <p style="font-size: 14px; opacity: 0.8; margin-top: 10px;">Предложение автоматически обновится в полночь</p>
-        </div>
-    </section>
-
-    <!-- Price Calculator -->
-    <section class="calculator-section">
-        <div class="container">
-            <div class="calculator-card">
-                <h3 class="calculator-title">Твоя Выгода</h3>
-                <div class="calculator-row">
-                    <span class="calculator-label">Обычная цена:</span>
-                    <span class="calculator-value" id="originalPrice">145 €</span>
-                </div>
-                <div class="calculator-row">
-                    <span class="calculator-label">Специальная цена:</span>
-                    <span class="calculator-value" id="specialPrice">29 €</span>
-                </div>
-                <div class="calculator-row">
-                    <span class="calculator-label">Экономия:</span>
-                    <span class="calculator-value" style="color: var(--success);" id="savingsAmount">116 €</span>
-                </div>
-                <div class="calculator-row">
-                    <span class="calculator-label">Стоимость в день:</span>
-                    <span class="calculator-value" style="color: var(--primary);" id="dailyCost">1 €</span>
-                </div>
-                <div class="calculator-total" id="totalPrice">
-                    Итого: 29 €
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Price -->
-    <section class="price-section">
-        <div class="container">
-            <p class="original-price" id="pageOriginalPrice">Обычная цена: 145 €</p>
-            <p class="current-price pulse" id="pageCurrentPrice">Только сегодня: 29 €</p>
-            <p class="price-note" id="pagePriceNote">Экономия 116 €! Предложение действует 24 часа.</p>
-            <div class="price-features">
-                <div class="price-feature">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Персональный план на 30 дней</span>
-                </div>
-                <div class="price-feature">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Поддержка диетолога и психолога</span>
-                </div>
-                <div class="price-feature">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Доступ к закрытому сообществу</span>
-                </div>
-                <div class="price-feature">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Бонусные материалы на 6 месяцев</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Comparison Table -->
-    <section class="comparison-section">
-        <div class="container">
-            <h2 class="comparison-title">Почему Наш План Лучше?</h2>
-            <div class="comparison-table">
-                <div class="comparison-header">
-                    <div>Параметр</div>
-                    <div>Наш план</div>
-                    <div>Альтернативы</div>
-                </div>
-                <div class="comparison-row">
-                    <div class="comparison-label">Стоимость</div>
-                    <div class="comparison-value comparison-our" id="comparisonPrice">29 €</div>
-                    <div class="comparison-value comparison-other" id="alternativePrice">От 150 €</div>
-                </div>
-                <div class="comparison-row">
-                    <div class="comparison-label">Результат</div>
-                    <div class="comparison-value comparison-our">Гарантирован</div>
-                    <div class="comparison-value comparison-other">Не гарантирован</div>
-                </div>
-                <div class="comparison-row">
-                    <div class="comparison-label">Поддержка</div>
-                    <div class="comparison-value comparison-our">24/7 + эксперты</div>
-                    <div class="comparison-value comparison-other">Ограниченная</div>
-                </div>
-                <div class="comparison-row">
-                    <div class="comparison-label">Риск</div>
-                    <div class="comparison-value comparison-our">Нет (гарантия)</div>
-                    <div class="comparison-value comparison-other">Высокий</div>
-                </div>
-                <div class="comparison-row">
-                    <div class="comparison-label">Персонализация</div>
-                    <div class="comparison-value comparison-our">Под твои особенности</div>
-                    <div class="comparison-value comparison-other">Общие рекомендации</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Risk Reversal -->
-    <section class="risk-reversal">
-        <div class="container">
-            <div class="risk-icon">
-                <i class="fas fa-shield-alt"></i>
-            </div>
-            <h3 class="risk-title">100% Гарантия Возврата Денег</h3>
-            <p class="risk-text">Если ты честно выполнишь все рекомендации плана в течение 30 дней и не увидишь никаких результатов — ни визуальных, ни в самочувствии — мы вернем тебе полную стоимость. Без вопросов и бюрократии. За 2 года у нас не было ни одного случая возврата!</p>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="faq-section">
-        <div class="container">
-            <h2 class="section-title">Частые Вопросы</h2>
-            <div class="faq-item">
-                <div class="faq-question">Будет ли мне голодно во время плана?</div>
-                <p class="faq-answer">Абсолютно нет! Мы рассчитываем калорийность так, чтобы ты получала достаточно энергии для комфортного самочувствия. Большинство наших клиентов отмечают, что чувствуют себя даже лучше, чем до начала плана.</p>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">Что если у меня есть медицинские противопоказания?</div>
-                <p class="faq-answer">В анкете ты укажешь все свои ограничения и противопоказания. Наши диетологи создадут план с учетом твоего здоровья. При серьезных заболеваниях мы рекомендуем проконсультироваться с лечащим врачом.</p>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">Как быстро я увижу результаты?</div>
-                <p class="faq-answer">Первые изменения ты заметишь уже на первой неделе — улучшится самочувствие, исчезнет вздутие, появится энергия. Визуальные изменения обычно становятся заметны через 2-3 недели. Главное — регулярность!</p>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">Что входит в гарантию возврата денег?</div>
-                <p class="faq-answer">Если ты честно выполняла все рекомендации плана в течение 30 дней и не получила никакого результата (ни визуального, ни в самочувствии), мы вернем тебе полную стоимость. За 2 года у нас не было ни одного случая возврата!</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Micro Commitment -->
-    <section class="commitment-section">
-        <div class="container">
-            <p class="commitment-text">Готова ли ты уже сегодня сделать шаг к новому телу?</p>
-            <div class="commitment-checkbox">
-                <input type="checkbox" id="commitment">
-                <label for="commitment">Да, я готова инвестировать в себя и свое здоровье!</label>
-            </div>
-        </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section class="final-cta">
-        <div class="container">
-            <h3 class="final-title">Да, я хочу новое тело!</h3>
-            <p class="final-subtitle">Последние 3 места по специальной цене</p>
-            <a href="#" class="final-btn" id="purchaseButton">
-                Начать преображение
-            </a>
-            <div class="payment-methods">
-                <span class="payment-method">💳</span>
-                <span class="payment-method">📱</span>
-                <span class="payment-method">🔒</span>
-            </div>
-            <p class="final-guarantee">
-                <i class="fas fa-shield-alt"></i> Безопасная оплата • Мгновенный доступ • Гарантия 30 дней
-            </p>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <div class="footer">
-        <p>&copy; 2026 Fit30Days. Все права защищены.</p>
-        <p>Результаты могут отличаться. Индивидуальные особенности организма учитываются.</p>
-        <p>Перед началом любой программы похудения рекомендуется проконсультироваться с врачом.</p>
     </div>
 
     <script>
-        // Currency configuration
         const CURRENCY_CONFIG = {
             'UA': {
                 name: 'Украина',
@@ -1779,16 +1868,8 @@
             return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
         }
 
-        function detectCountryFromLanguage() {
-            const lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
-            // Только если язык явно указывает на страну
-            if (lang === 'uk' || lang === 'uk-ua') return 'UA';
-            if (lang === 'kk' || lang === 'kk-kz') return 'KZ';
-            if (lang === 'ru' || lang === 'ru-ru') return 'RU';
-            return null;
-        }
-
-        function updateAllTexts(config) {
+        function applyCountryConfig(countryCode) {
+            const config = CURRENCY_CONFIG[countryCode];
             const symbol = config.symbol;
             const price = config.price;
             const original = config.originalPrice;
@@ -1822,39 +1903,44 @@
                 </div>
             `;
             document.getElementById('bonusTotalPrice').textContent = `Общая стоимость бонусов: ${formatPrice(config.bonusTotal)} ${symbol}`;
+            document.getElementById('spotsLeft').textContent = Math.floor(Math.random() * 5) + 1;
 
-            window.purchaseUrl = config.buttonUrl;
-            document.getElementById('loadingOverlay').style.display = 'none';
+            window.currentPurchaseUrl = config.buttonUrl;
+
+            // Show landing
+            document.getElementById('countrySelectorScreen').style.display = 'none';
+            document.getElementById('loadingOverlay').style.display = 'flex';
+            
+            setTimeout(() => {
+                document.getElementById('fullLanding').style.display = 'block';
+                document.getElementById('loadingOverlay').style.display = 'none';
+            }, 300);
         }
 
-        function detectCountryAndSetPrices() {
-            // Сначала пробуем ipapi.co
-            fetch('https://ipapi.co/json/', { mode: 'cors' })
-                .then(response => {
-                    if (!response.ok) throw new Error('Network error');
-                    return response.json();
-                })
-                .then(data => {
-                    const code = data.country_code;
-                    if (['UA', 'KZ', 'RU'].includes(code)) {
-                        updateAllTexts(CURRENCY_CONFIG[code]);
-                        return;
-                    }
-                    // Если страна не целевая — используем евро по умолчанию
-                    updateAllTexts(CURRENCY_CONFIG.DEFAULT);
-                })
-                .catch(() => {
-                    // Если ipapi недоступен — пробуем язык, но только для точных совпадений
-                    const langCountry = detectCountryFromLanguage();
-                    if (langCountry && ['UA', 'KZ', 'RU'].includes(langCountry)) {
-                        updateAllTexts(CURRENCY_CONFIG[langCountry]);
-                    } else {
-                        // По умолчанию — евро
-                        updateAllTexts(CURRENCY_CONFIG.DEFAULT);
-                    }
-                });
+        // Handle button clicks
+        document.querySelectorAll('.country-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const country = btn.getAttribute('data-country');
+                applyCountryConfig(country);
+            });
+        });
+
+        // Handle purchase buttons
+        function setupPurchaseButtons() {
+            const buttons = [document.getElementById('purchaseButton'), document.getElementById('stickyBtn')];
+            buttons.forEach(btn => {
+                if (btn) {
+                    btn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        if (window.currentPurchaseUrl) {
+                            window.location.href = window.currentPurchaseUrl;
+                        }
+                    });
+                }
+            });
         }
 
+        // Timer
         function initializeCountdown() {
             const updateCountdown = () => {
                 const now = new Date();
@@ -1883,23 +1969,17 @@
             setInterval(updateCountdown, 1000);
         }
 
-        function updateScarcity() {
-            document.getElementById('spotsLeft').textContent = Math.floor(Math.random() * 5) + 1;
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            setupPurchaseButtons();
             initializeCountdown();
-            updateScarcity();
-            detectCountryAndSetPrices();
-
-            document.querySelectorAll('.final-btn, .sticky-btn').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    if (window.purchaseUrl) {
-                        window.location.href = window.purchaseUrl;
-                    }
-                });
-            });
+            
+            // Optional: if URL has ?country=XX, auto-apply
+            const urlParams = new URLSearchParams(window.location.search);
+            const countryParam = urlParams.get('country');
+            if (countryParam && CURRENCY_CONFIG[countryParam]) {
+                applyCountryConfig(countryParam);
+            }
         });
     </script>
 </body>
