@@ -1727,7 +1727,7 @@
     </div>
 
     <script>
-        // Currency configuration with realistic "alternative" prices (~5x our price)
+        // Currency configuration
         const CURRENCY_CONFIG = {
             'UA': {
                 name: 'Украина',
@@ -1779,6 +1779,14 @@
             return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
         }
 
+        function detectCountryFromLanguage() {
+            const lang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+            if (lang.includes('ru')) return 'RU';
+            if (lang.includes('uk')) return 'UA';
+            if (lang.includes('kk') || lang.includes('kz')) return 'KZ';
+            return null;
+        }
+
         function updateAllTexts(config) {
             const symbol = config.symbol;
             const price = config.price;
@@ -1787,26 +1795,17 @@
             const savings = original - price;
             const daily = Math.ceil(price / 30);
 
-            // Price section
             document.getElementById('pageOriginalPrice').textContent = `Обычная цена: ${formatPrice(original)} ${symbol}`;
             document.getElementById('pageCurrentPrice').textContent = `Только сегодня: ${formatPrice(price)} ${symbol}`;
             document.getElementById('pagePriceNote').textContent = `Экономия ${formatPrice(savings)} ${symbol}! Предложение действует 24 часа.`;
-
-            // Calculator
             document.getElementById('originalPrice').textContent = `${formatPrice(original)} ${symbol}`;
             document.getElementById('specialPrice').textContent = `${formatPrice(price)} ${symbol}`;
             document.getElementById('savingsAmount').textContent = `${formatPrice(savings)} ${symbol}`;
             document.getElementById('dailyCost').textContent = `${formatPrice(daily)} ${symbol}`;
             document.getElementById('totalPrice').textContent = `Итого: ${formatPrice(price)} ${symbol}`;
-
-            // Comparison
             document.getElementById('comparisonPrice').textContent = `${formatPrice(price)} ${symbol}`;
             document.getElementById('alternativePrice').textContent = `От ${formatPrice(alternative)} ${symbol}`;
-
-            // Sticky CTA
             document.getElementById('stickyPrice').textContent = `Только ${formatPrice(price)} ${symbol}`;
-
-            // Bonus section
             document.getElementById('bonusList').innerHTML = `
                 <div class="bonus-item">
                     <i class="fas fa-check-circle"></i>
@@ -1823,23 +1822,39 @@
             `;
             document.getElementById('bonusTotalPrice').textContent = `Общая стоимость бонусов: ${formatPrice(config.bonusTotal)} ${symbol}`;
 
-            // Store URL
             window.purchaseUrl = config.buttonUrl;
-
-            // Hide loader
             document.getElementById('loadingOverlay').style.display = 'none';
         }
 
         function detectCountryAndSetPrices() {
-            fetch('https://ipapi.co/json/')
-                .then(response => response.json())
+            // Сначала пробуем ipapi.co
+            fetch('https://ipapi.co/json/', { mode: 'cors' })
+                .then(response => {
+                    if (!response.ok) throw new Error('Network error');
+                    return response.json();
+                })
                 .then(data => {
-                    const countryCode = data.country_code;
-                    const config = CURRENCY_CONFIG[countryCode] || CURRENCY_CONFIG.DEFAULT;
-                    updateAllTexts(config);
+                    const code = data.country_code;
+                    if (['UA', 'KZ', 'RU'].includes(code)) {
+                        updateAllTexts(CURRENCY_CONFIG[code]);
+                        return;
+                    }
+                    // Если страна не наша — пробуем язык
+                    const langCountry = detectCountryFromLanguage();
+                    if (langCountry) {
+                        updateAllTexts(CURRENCY_CONFIG[langCountry]);
+                    } else {
+                        updateAllTexts(CURRENCY_CONFIG.DEFAULT);
+                    }
                 })
                 .catch(() => {
-                    updateAllTexts(CURRENCY_CONFIG.DEFAULT);
+                    // Если ipapi не сработал — используем язык
+                    const langCountry = detectCountryFromLanguage();
+                    if (langCountry) {
+                        updateAllTexts(CURRENCY_CONFIG[langCountry]);
+                    } else {
+                        updateAllTexts(CURRENCY_CONFIG.DEFAULT);
+                    }
                 });
         }
 
@@ -1880,7 +1895,6 @@
             updateScarcity();
             detectCountryAndSetPrices();
 
-            // Buttons
             document.querySelectorAll('.final-btn, .sticky-btn').forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     e.preventDefault();
@@ -1893,5 +1907,4 @@
     </script>
 </body>
 </html>
-
 
