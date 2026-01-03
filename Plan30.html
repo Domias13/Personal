@@ -1568,22 +1568,22 @@
                 <h3 class="calculator-title">Твоя Выгода</h3>
                 <div class="calculator-row">
                     <span class="calculator-label">Обычная цена:</span>
-                    <span class="calculator-value" id="originalPrice">4,990 ₽</span>
+                    <span class="calculator-value" id="originalPrice">145 €</span>
                 </div>
                 <div class="calculator-row">
                     <span class="calculator-label">Специальная цена:</span>
-                    <span class="calculator-value" id="specialPrice">990 ₽</span>
+                    <span class="calculator-value" id="specialPrice">29 €</span>
                 </div>
                 <div class="calculator-row">
                     <span class="calculator-label">Экономия:</span>
-                    <span class="calculator-value" style="color: var(--success);" id="savingsAmount">4,000 ₽</span>
+                    <span class="calculator-value" style="color: var(--success);" id="savingsAmount">116 €</span>
                 </div>
                 <div class="calculator-row">
                     <span class="calculator-label">Стоимость в день:</span>
-                    <span class="calculator-value" style="color: var(--primary);" id="dailyCost">33 ₽</span>
+                    <span class="calculator-value" style="color: var(--primary);" id="dailyCost">1 €</span>
                 </div>
                 <div class="calculator-total" id="totalPrice">
-                    Итого: 990 ₽
+                    Итого: 29 €
                 </div>
             </div>
         </div>
@@ -1592,9 +1592,9 @@
     <!-- Price -->
     <section class="price-section">
         <div class="container">
-            <p class="original-price" id="pageOriginalPrice">Обычная цена: 4,990 ₽</p>
-            <p class="current-price pulse" id="pageCurrentPrice">Только сегодня: 990 ₽</p>
-            <p class="price-note" id="pagePriceNote">Экономия 4,000 ₽! Предложение действует 24 часа.</p>
+            <p class="original-price" id="pageOriginalPrice">Обычная цена: 145 €</p>
+            <p class="current-price pulse" id="pageCurrentPrice">Только сегодня: 29 €</p>
+            <p class="price-note" id="pagePriceNote">Экономия 116 €! Предложение действует 24 часа.</p>
             <div class="price-features">
                 <div class="price-feature">
                     <i class="fas fa-check-circle"></i>
@@ -1628,8 +1628,8 @@
                 </div>
                 <div class="comparison-row">
                     <div class="comparison-label">Стоимость</div>
-                    <div class="comparison-value comparison-our" id="comparisonPrice">990 ₽</div>
-                    <div class="comparison-value comparison-other" id="alternativePrice">От 5,000 ₽</div>
+                    <div class="comparison-value comparison-our" id="comparisonPrice">29 €</div>
+                    <div class="comparison-value comparison-other" id="alternativePrice">От 150 €</div>
                 </div>
                 <div class="comparison-row">
                     <div class="comparison-label">Результат</div>
@@ -1780,10 +1780,11 @@
         }
 
         function detectCountryFromLanguage() {
-            const lang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
-            if (lang.includes('ru')) return 'RU';
-            if (lang.includes('uk')) return 'UA';
-            if (lang.includes('kk') || lang.includes('kz')) return 'KZ';
+            const lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+            // Только если язык явно указывает на страну
+            if (lang === 'uk' || lang === 'uk-ua') return 'UA';
+            if (lang === 'kk' || lang === 'kk-kz') return 'KZ';
+            if (lang === 'ru' || lang === 'ru-ru') return 'RU';
             return null;
         }
 
@@ -1839,20 +1840,16 @@
                         updateAllTexts(CURRENCY_CONFIG[code]);
                         return;
                     }
-                    // Если страна не наша — пробуем язык
-                    const langCountry = detectCountryFromLanguage();
-                    if (langCountry) {
-                        updateAllTexts(CURRENCY_CONFIG[langCountry]);
-                    } else {
-                        updateAllTexts(CURRENCY_CONFIG.DEFAULT);
-                    }
+                    // Если страна не целевая — используем евро по умолчанию
+                    updateAllTexts(CURRENCY_CONFIG.DEFAULT);
                 })
                 .catch(() => {
-                    // Если ipapi не сработал — используем язык
+                    // Если ipapi недоступен — пробуем язык, но только для точных совпадений
                     const langCountry = detectCountryFromLanguage();
-                    if (langCountry) {
+                    if (langCountry && ['UA', 'KZ', 'RU'].includes(langCountry)) {
                         updateAllTexts(CURRENCY_CONFIG[langCountry]);
                     } else {
+                        // По умолчанию — евро
                         updateAllTexts(CURRENCY_CONFIG.DEFAULT);
                     }
                 });
