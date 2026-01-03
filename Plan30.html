@@ -70,630 +70,6 @@
             font-size: 14px;
         }
 
-        /* Header */
-        .header {
-            text-align: center;
-            padding: 30px 0 20px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
-            transform: rotate(30deg);
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .logo {
-            font-size: 28px;
-            font-weight: 800;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .logo i {
-            color: var(--accent);
-        }
-
-        .hero-title {
-            font-size: 28px;
-            font-weight: 800;
-            margin-bottom: 15px;
-            line-height: 1.2;
-        }
-
-        .hero-subtitle {
-            font-size: 16px;
-            opacity: 0.9;
-            margin-bottom: 20px;
-        }
-
-        /* Trust Badges */
-        .trust-badges {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            padding: 15px 0;
-            background: white;
-            flex-wrap: wrap;
-        }
-
-        .badge {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            font-size: 12px;
-            color: var(--gray);
-        }
-
-        .badge i {
-            color: var(--success);
-            font-size: 14px;
-        }
-
-        /* Live Activity */
-        .live-activity {
-            background: linear-gradient(135deg, #fffbeb, #fef3c7);
-            padding: 12px 20px;
-            text-align: center;
-            border-left: 4px solid var(--warning);
-            margin: 15px 0;
-            animation: pulse 2s infinite;
-        }
-
-        .live-activity i {
-            color: var(--warning);
-            margin-right: 8px;
-        }
-
-        .live-activity .time {
-            opacity: 0.7;
-            font-size: 12px;
-            margin-left: 10px;
-        }
-
-        /* Social Proof */
-        .social-proof {
-            background: white;
-            padding: 15px 0;
-            text-align: center;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        .proof-text {
-            font-size: 14px;
-            color: var(--gray);
-        }
-
-        .proof-count {
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        /* Trust Meter */
-        .trust-meter {
-            background: white;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 12px;
-            text-align: center;
-            border: 2px solid #e5e7eb;
-        }
-
-        .meter-container {
-            width: 100%;
-            height: 8px;
-            background: #e5e7eb;
-            border-radius: 4px;
-            margin: 10px 0;
-            overflow: hidden;
-        }
-
-        .meter-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--success), var(--primary));
-            width: 94%;
-            border-radius: 4px;
-        }
-
-        .trust-text {
-            font-weight: 700;
-            color: var(--dark);
-        }
-
-        /* Problem Section */
-        .problem-section {
-            padding: 30px 0;
-            background: white;
-            text-align: center;
-        }
-
-        .problem-title {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--dark);
-        }
-
-        .problem-list {
-            max-width: 600px;
-            margin: 0 auto 25px;
-        }
-
-        .problem-item {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            margin-bottom: 15px;
-            padding: 10px 15px;
-            background: #fef2f2;
-            border-radius: 12px;
-            color: var(--danger);
-        }
-
-        .problem-item i {
-            margin-right: 10px;
-            font-size: 18px;
-        }
-
-        .solution-title {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: var(--success);
-        }
-
-        .solution-text {
-            color: var(--gray);
-            margin-bottom: 25px;
-        }
-
-        /* Video Section */
-        .video-section {
-            padding: 30px 0;
-            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
-            text-align: center;
-        }
-
-        .video-container {
-            position: relative;
-            max-width: 500px;
-            margin: 0 auto;
-            background: #1f2937;
-            border-radius: 16px;
-            overflow: hidden;
-            height: 280px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .video-placeholder {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, #4f46e5, #10b981);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            padding: 20px;
-        }
-
-        .video-icon {
-            font-size: 48px;
-            margin-bottom: 15px;
-        }
-
-        .video-title {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .video-desc {
-            font-size: 14px;
-            opacity: 0.9;
-        }
-
-        .play-btn {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            border: 3px solid white;
-        }
-
-        .play-icon {
-            color: white;
-            font-size: 24px;
-            margin-left: 5px;
-        }
-
-        /* Benefits */
-        .benefits {
-            padding: 30px 0;
-            background: white;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 25px;
-            color: var(--dark);
-        }
-
-        .benefits-grid {
-            display: grid;
-            gap: 20px;
-        }
-
-        .benefit-card {
-            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
-            border-radius: 16px;
-            padding: 20px;
-            text-align: center;
-            border: 2px solid transparent;
-            transition: all 0.3s ease;
-        }
-
-        .benefit-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.1);
-        }
-
-        .benefit-icon {
-            font-size: 32px;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-
-        .benefit-title {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .benefit-desc {
-            font-size: 14px;
-            color: var(--gray);
-        }
-
-        /* Before After Gallery */
-        .before-after-section {
-            padding: 30px 0;
-            background: white;
-        }
-
-        .before-after-grid {
-            display: grid;
-            gap: 20px;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .before-after-item {
-            background: #f8fafc;
-            border-radius: 16px;
-            padding: 20px;
-            text-align: center;
-            border: 1px solid #e2e8f0;
-        }
-
-        .before-after-photos {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 15px;
-        }
-
-        .photo-placeholder {
-            width: 80px;
-            height: 100px;
-            background: linear-gradient(135deg, #4f46e5, #7c3aed);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 12px;
-            font-weight: 700;
-        }
-
-        .before-after-stats {
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-
-        .before-after-name {
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .before-after-text {
-            color: var(--gray);
-            font-size: 13px;
-            line-height: 1.5;
-        }
-
-        /* How It Works */
-        .how-it-works {
-            padding: 30px 0;
-            background: linear-gradient(135deg, #fff7ed, #ffedd5);
-        }
-
-        .steps {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .step {
-            display: flex;
-            gap: 15px;
-            background: white;
-            padding: 20px;
-            border-radius: 16px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-
-        .step-number {
-            background: var(--primary);
-            color: white;
-            min-width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 16px;
-        }
-
-        .step-content h4 {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: var(--dark);
-        }
-
-        .step-content p {
-            color: var(--gray);
-            font-size: 14px;
-        }
-
-        /* Expert Team */
-        .team-section {
-            padding: 30px 0;
-            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
-        }
-
-        .team-grid {
-            display: grid;
-            gap: 20px;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .team-member {
-            background: white;
-            border-radius: 16px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-
-        .member-avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 15px;
-            border: 3px solid var(--primary);
-        }
-
-        .member-name {
-            font-weight: 700;
-            font-size: 18px;
-            margin-bottom: 5px;
-            color: var(--dark);
-        }
-
-        .member-title {
-            color: var(--primary);
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
-
-        .member-desc {
-            color: var(--gray);
-            font-size: 13px;
-            line-height: 1.5;
-        }
-
-        /* Science Behind */
-        .science-section {
-            padding: 30px 0;
-            background: white;
-        }
-
-        .science-content {
-            max-width: 700px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .science-title {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-
-        .science-text {
-            color: var(--gray);
-            margin-bottom: 20px;
-            line-height: 1.7;
-        }
-
-        .science-points {
-            text-align: left;
-            margin-top: 20px;
-        }
-
-        .science-point {
-            margin-bottom: 12px;
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-        }
-
-        .science-point i {
-            color: var(--success);
-            margin-top: 4px;
-        }
-
-        /* Results Stats */
-        .results-section {
-            padding: 30px 0;
-            background: linear-gradient(135deg, #dcfce7, #bbf7d0);
-            text-align: center;
-        }
-
-        .results-title {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 25px;
-            color: var(--dark);
-        }
-
-        .results-grid {
-            display: grid;
-            gap: 20px;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .result-item {
-            background: white;
-            border-radius: 16px;
-            padding: 20px;
-            border: 1px solid #e2e8f0;
-        }
-
-        .result-stats {
-            display: flex;
-            justify-content: space-around;
-            margin-bottom: 15px;
-        }
-
-        .result-stat {
-            text-align: center;
-        }
-
-        .result-value {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .result-label {
-            font-size: 12px;
-            color: var(--gray);
-        }
-
-        .result-text {
-            font-size: 14px;
-            color: var(--gray);
-            line-height: 1.5;
-        }
-
-        /* Testimonials */
-        .testimonials {
-            padding: 30px 0;
-            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
-        }
-
-        .testimonial-card {
-            background: white;
-            border-radius: 16px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            border-left: 4px solid var(--primary);
-            display: flex;
-            gap: 15px;
-        }
-
-        .testimonial-avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
-            flex-shrink: 0;
-            border: 2px solid var(--primary);
-        }
-
-        .testimonial-content {
-            flex: 1;
-        }
-
-        .testimonial-rating {
-            color: var(--warning);
-            margin-bottom: 10px;
-            font-size: 18px;
-        }
-
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 15px;
-            color: var(--dark);
-            line-height: 1.6;
-        }
-
-        .testimonial-author {
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 5px;
-        }
-
-        .testimonial-stats {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 10px;
-            font-size: 12px;
-            color: var(--gray);
-        }
-
         /* Bonus Section */
         .bonus-section {
             padding: 30px 0;
@@ -738,64 +114,6 @@
             font-size: 18px;
             color: var(--gray);
             text-decoration: line-through;
-        }
-
-        /* Scarcity */
-        .scarcity {
-            text-align: center;
-            padding: 20px;
-            background: #fffbeb;
-            border-left: 4px solid var(--warning);
-            margin: 20px 0;
-        }
-
-        .scarcity-text {
-            color: #92400e;
-            font-weight: 600;
-        }
-
-        .spots-left {
-            font-weight: 700;
-            color: var(--danger);
-        }
-
-        /* Timer */
-        .timer-section {
-            padding: 30px 0;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            text-align: center;
-        }
-
-        .timer-title {
-            font-size: 20px;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .timer {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .timer-unit {
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 12px;
-            padding: 10px;
-            min-width: 60px;
-        }
-
-        .timer-value {
-            font-size: 24px;
-            font-weight: 700;
-            display: block;
-        }
-
-        .timer-label {
-            font-size: 12px;
-            opacity: 0.8;
         }
 
         /* Price Calculator */
@@ -868,7 +186,6 @@
 
         .price-note {
             font-size: 14px;
-            color: var(--gray);
             margin-bottom: 20px;
         }
 
@@ -886,7 +203,698 @@
             color: var(--success);
         }
 
-        /* Comparison Table */
+        /* Loading Overlay */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        .loading-text {
+            font-size: 18px;
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* Остальные стили — без изменений */
+        .header {
+            text-align: center;
+            padding: 30px 0 20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            transform: rotate(30deg);
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            color: var(--accent);
+        }
+
+        .hero-title {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .live-activity {
+            background: linear-gradient(135deg, #fffbeb, #fef3c7);
+            padding: 12px 20px;
+            text-align: center;
+            border-left: 4px solid var(--warning);
+            margin: 15px 0;
+            animation: pulse 2s infinite;
+        }
+
+        .live-activity i {
+            color: var(--warning);
+            margin-right: 8px;
+        }
+
+        .live-activity .time {
+            opacity: 0.7;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+
+        .social-proof {
+            background: white;
+            padding: 15px 0;
+            text-align: center;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .proof-text {
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        .proof-count {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .trust-meter {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid #e5e7eb;
+        }
+
+        .meter-container {
+            width: 100%;
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 4px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+
+        .meter-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--success), var(--primary));
+            width: 94%;
+            border-radius: 4px;
+        }
+
+        .trust-text {
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .problem-section {
+            padding: 30px 0;
+            background: white;
+            text-align: center;
+        }
+
+        .problem-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .problem-list {
+            max-width: 600px;
+            margin: 0 auto 25px;
+        }
+
+        .problem-item {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            background: #fef2f2;
+            border-radius: 12px;
+            color: var(--danger);
+        }
+
+        .problem-item i {
+            margin-right: 10px;
+            font-size: 18px;
+        }
+
+        .solution-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--success);
+        }
+
+        .solution-text {
+            color: var(--gray);
+            margin-bottom: 25px;
+        }
+
+        .video-section {
+            padding: 30px 0;
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            text-align: center;
+        }
+
+        .video-container {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+            background: #1f2937;
+            border-radius: 16px;
+            overflow: hidden;
+            height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #4f46e5, #10b981);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .video-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .video-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .video-desc {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 3px solid white;
+        }
+
+        .play-icon {
+            color: white;
+            font-size: 24px;
+            margin-left: 5px;
+        }
+
+        .benefits {
+            padding: 30px 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: var(--dark);
+        }
+
+        .benefits-grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .benefit-card {
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.1);
+        }
+
+        .benefit-icon {
+            font-size: 32px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .benefit-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .benefit-desc {
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        .before-after-section {
+            padding: 30px 0;
+            background: white;
+        }
+
+        .before-after-grid {
+            display: grid;
+            gap: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .before-after-item {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+
+        .before-after-photos {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .photo-placeholder {
+            width: 80px;
+            height: 100px;
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .before-after-stats {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .before-after-name {
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .before-after-text {
+            color: var(--gray);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .how-it-works {
+            padding: 30px 0;
+            background: linear-gradient(135deg, #fff7ed, #ffedd5);
+        }
+
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .step {
+            display: flex;
+            gap: 15px;
+            background: white;
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .step-number {
+            background: var(--primary);
+            color: white;
+            min-width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .step-content h4 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+
+        .step-content p {
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        .team-section {
+            padding: 30px 0;
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+        }
+
+        .team-grid {
+            display: grid;
+            gap: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .team-member {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .member-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 15px;
+            border: 3px solid var(--primary);
+        }
+
+        .member-name {
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+
+        .member-title {
+            color: var(--primary);
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .member-desc {
+            color: var(--gray);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .science-section {
+            padding: 30px 0;
+            background: white;
+        }
+
+        .science-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .science-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .science-text {
+            color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .science-points {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .science-point {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .science-point i {
+            color: var(--success);
+            margin-top: 4px;
+        }
+
+        .results-section {
+            padding: 30px 0;
+            background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+            text-align: center;
+        }
+
+        .results-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: var(--dark);
+        }
+
+        .results-grid {
+            display: grid;
+            gap: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .result-item {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .result-stats {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 15px;
+        }
+
+        .result-stat {
+            text-align: center;
+        }
+
+        .result-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .result-label {
+            font-size: 12px;
+            color: var(--gray);
+        }
+
+        .result-text {
+            font-size: 14px;
+            color: var(--gray);
+            line-height: 1.5;
+        }
+
+        .testimonials {
+            padding: 30px 0;
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--primary);
+            display: flex;
+            gap: 15px;
+        }
+
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 2px solid var(--primary);
+        }
+
+        .testimonial-content {
+            flex: 1;
+        }
+
+        .testimonial-rating {
+            color: var(--warning);
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .testimonial-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            font-size: 12px;
+            color: var(--gray);
+        }
+
+        .scarcity {
+            text-align: center;
+            padding: 20px;
+            background: #fffbeb;
+            border-left: 4px solid var(--warning);
+            margin: 20px 0;
+        }
+
+        .scarcity-text {
+            color: #92400e;
+            font-weight: 600;
+        }
+
+        .spots-left {
+            font-weight: 700;
+            color: var(--danger);
+        }
+
+        .timer-section {
+            padding: 30px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            text-align: center;
+        }
+
+        .timer-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .timer {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .timer-unit {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 10px;
+            min-width: 60px;
+        }
+
+        .timer-value {
+            font-size: 24px;
+            font-weight: 700;
+            display: block;
+        }
+
+        .timer-label {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
         .comparison-section {
             padding: 30px 0;
             background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
@@ -962,7 +970,6 @@
             text-align: center;
         }
 
-        /* Risk Reversal */
         .risk-reversal {
             background: linear-gradient(135deg, #dcfce7, #bbf7d0);
             padding: 25px 0;
@@ -990,7 +997,6 @@
             line-height: 1.6;
         }
 
-        /* FAQ */
         .faq-section {
             padding: 30px 0;
             background: white;
@@ -1015,7 +1021,6 @@
             line-height: 1.6;
         }
 
-        /* Micro Commitment */
         .commitment-section {
             padding: 25px 0;
             background: #f8fafc;
@@ -1044,7 +1049,6 @@
             cursor: pointer;
         }
 
-        /* Final CTA */
         .final-cta {
             padding: 40px 0;
             background: linear-gradient(135deg, var(--secondary), #059669);
@@ -1121,7 +1125,6 @@
             font-size: 20px;
         }
 
-        /* Footer */
         .footer {
             text-align: center;
             padding: 20px 0;
@@ -1130,120 +1133,24 @@
             background: var(--light);
         }
 
-        /* Loading Overlay */
-        .loading-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(255, 255, 255, 0.9);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 2000;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .loading-spinner {
-            width: 50px;
-            height: 50px;
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid var(--primary);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        .loading-text {
-            font-size: 18px;
-            color: var(--dark);
-            font-weight: 600;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Animations */
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-            100% { transform: scale(1); }
-        }
-
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-
-        /* Responsive */
         @media (min-width: 768px) {
-            .hero-title {
-                font-size: 36px;
-            }
-            
-            .benefits-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .steps {
-                flex-direction: row;
-                flex-wrap: wrap;
-            }
-            
-            .step {
-                flex: 1;
-                min-width: 200px;
-            }
-            
-            .testimonial-card {
-                flex-direction: row;
-            }
-            
-            .team-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .results-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .before-after-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .comparison-table {
-                display: block;
-            }
-            
-            .comparison-middle {
-                display: none;
-            }
+            .hero-title { font-size: 36px; }
+            .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+            .steps { flex-direction: row; flex-wrap: wrap; }
+            .step { flex: 1; min-width: 200px; }
+            .testimonial-card { flex-direction: row; }
+            .team-grid { grid-template-columns: repeat(2, 1fr); }
+            .results-grid { grid-template-columns: repeat(2, 1fr); }
+            .before-after-grid { grid-template-columns: repeat(2, 1fr); }
+            .comparison-table { display: block; }
+            .comparison-middle { display: none; }
         }
-        
+
         @media (max-width: 767px) {
-            .comparison-header,
-            .comparison-row {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .comparison-label {
-                grid-column: 1;
-                text-align: center;
-                padding-right: 0;
-                margin-bottom: 10px;
-            }
-            
-            .comparison-value {
-                grid-column: 1;
-            }
-            
-            .comparison-our, .comparison-other {
-                display: block;
-                margin: 5px 0;
-            }
+            .comparison-header, .comparison-row { grid-template-columns: 1fr; text-align: center; }
+            .comparison-label { grid-column: 1; text-align: center; padding-right: 0; margin-bottom: 10px; }
+            .comparison-value { grid-column: 1; }
+            .comparison-our, .comparison-other { display: block; margin: 5px 0; }
         }
     </style>
 </head>
@@ -1256,7 +1163,7 @@
 
     <!-- Sticky CTA Bar -->
     <div class="sticky-cta">
-        <div class="sticky-price">Специальная цена</div>
+        <div class="sticky-price" id="stickyPrice">Специальная цена</div>
         <button class="sticky-btn">Да, я хочу!</button>
     </div>
 
@@ -1280,21 +1187,21 @@
     </div>
 
     <!-- Trust Badges -->
-    <div class="trust-badges">
-        <div class="badge">
-            <i class="fas fa-shield-alt"></i>
+    <div class="trust-badges" style="display: flex; justify-content: center; gap: 20px; padding: 15px 0; background: white; flex-wrap: wrap;">
+        <div class="badge" style="display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--gray);">
+            <i class="fas fa-shield-alt" style="color: var(--success); font-size: 14px;"></i>
             <span>Безопасная оплата</span>
         </div>
-        <div class="badge">
-            <i class="fas fa-sync-alt"></i>
+        <div class="badge" style="display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--gray);">
+            <i class="fas fa-sync-alt" style="color: var(--success); font-size: 14px;"></i>
             <span>30 дней гарантии</span>
         </div>
-        <div class="badge">
-            <i class="fas fa-headset"></i>
+        <div class="badge" style="display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--gray);">
+            <i class="fas fa-headset" style="color: var(--success); font-size: 14px;"></i>
             <span>Поддержка 24/7</span>
         </div>
-        <div class="badge">
-            <i class="fas fa-lock"></i>
+        <div class="badge" style="display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--gray);">
+            <i class="fas fa-lock" style="color: var(--success); font-size: 14px;"></i>
             <span>Конфиденциально</span>
         </div>
     </div>
@@ -1620,21 +1527,10 @@
         <div class="container">
             <div class="bonus-badge">ТОЛЬКО СЕГОДНЯ!</div>
             <h3 class="bonus-title">Бонусы для Первых 5 Покупателей</h3>
-            <div class="bonus-list">
-                <div class="bonus-item">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Персональная консультация с диетологом (1500₽)</span>
-                </div>
-                <div class="bonus-item">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Гайд "Как не сорваться на праздниках"</span>
-                </div>
-                <div class="bonus-item">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Доступ к VIP-группе поддержки</span>
-                </div>
+            <div class="bonus-list" id="bonusList">
+                <!-- Dynamically filled -->
             </div>
-            <p class="bonus-price">Общая стоимость бонусов: 2500₽</p>
+            <p class="bonus-price" id="bonusTotalPrice"></p>
         </div>
     </section>
 
@@ -1680,11 +1576,11 @@
                 </div>
                 <div class="calculator-row">
                     <span class="calculator-label">Экономия:</span>
-                    <span class="calculator-value" style="color: var(--success);">4,000 ₽</span>
+                    <span class="calculator-value" style="color: var(--success);" id="savingsAmount">4,000 ₽</span>
                 </div>
                 <div class="calculator-row">
                     <span class="calculator-label">Стоимость в день:</span>
-                    <span class="calculator-value" style="color: var(--primary);">33 ₽</span>
+                    <span class="calculator-value" style="color: var(--primary);" id="dailyCost">33 ₽</span>
                 </div>
                 <div class="calculator-total" id="totalPrice">
                     Итого: 990 ₽
@@ -1733,7 +1629,7 @@
                 <div class="comparison-row">
                     <div class="comparison-label">Стоимость</div>
                     <div class="comparison-value comparison-our" id="comparisonPrice">990 ₽</div>
-                    <div class="comparison-value comparison-other">От 5,000 ₽</div>
+                    <div class="comparison-value comparison-other" id="alternativePrice">От 5,000 ₽</div>
                 </div>
                 <div class="comparison-row">
                     <div class="comparison-label">Результат</div>
@@ -1831,7 +1727,7 @@
     </div>
 
     <script>
-        // Currency configuration
+        // Currency configuration with realistic "alternative" prices (~5x our price)
         const CURRENCY_CONFIG = {
             'UA': {
                 name: 'Украина',
@@ -1839,6 +1735,9 @@
                 symbol: 'грн',
                 price: 890,
                 originalPrice: 4450,
+                alternativePrice: 4500,
+                bonus1: '1300',
+                bonusTotal: '2200',
                 buttonUrl: 'https://secure.wayforpay.com/button/bf2c8e162fb1a'
             },
             'KZ': {
@@ -1847,6 +1746,9 @@
                 symbol: '₸',
                 price: 8900,
                 originalPrice: 44500,
+                alternativePrice: 45000,
+                bonus1: '13000',
+                bonusTotal: '22000',
                 buttonUrl: 'https://secure.wayforpay.com/button/b944da83066f4'
             },
             'RU': {
@@ -1855,6 +1757,9 @@
                 symbol: '₽',
                 price: 1490,
                 originalPrice: 7450,
+                alternativePrice: 7500,
+                bonus1: '1500',
+                bonusTotal: '2500',
                 buttonUrl: 'https://app.lava.top/products/ef427dff-60a0-43d4-a131-c743d721829e'
             },
             'DEFAULT': {
@@ -1863,178 +1768,130 @@
                 symbol: '€',
                 price: 29,
                 originalPrice: 145,
+                alternativePrice: 150,
+                bonus1: '22',
+                bonusTotal: '37',
                 buttonUrl: 'https://secure.wayforpay.com/button/b287c7fbef7a4'
             }
         };
 
-        // Fix timer to work properly
-        function initializeCountdown() {
-            const countdownElement = document.getElementById('countdown');
-            if (!countdownElement) return;
-            
-            const updateCountdown = () => {
-                const now = new Date();
-                const nextMidnight = new Date(now);
-                nextMidnight.setDate(nextMidnight.getDate() + (nextMidnight.getHours() >= 23 ? 1 : 0));
-                nextMidnight.setHours(23, 59, 59, 999);
-                
-                const diff = nextMidnight - now;
-                
-                if (diff <= 0) {
-                    // If we've passed midnight, set for next day
-                    const tomorrowMidnight = new Date(now);
-                    tomorrowMidnight.setDate(tomorrowMidnight.getDate() + 1);
-                    tomorrowMidnight.setHours(23, 59, 59, 999);
-                    const newDiff = tomorrowMidnight - now;
-                    updateTimerDisplay(newDiff);
-                } else {
-                    updateTimerDisplay(diff);
-                }
-            };
-            
-            const updateTimerDisplay = (diff) => {
-                const hours = Math.floor(diff / (1000 * 60 * 60));
-                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-                
-                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-            };
-            
-            // Update immediately and then every second
-            updateCountdown();
-            setInterval(updateCountdown, 1000);
+        function formatPrice(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
         }
-        
-        // Random spots left for scarcity
-        function updateScarcity() {
-            const spots = document.getElementById('spotsLeft');
-            if (spots) {
-                const randomSpots = Math.floor(Math.random() * 5) + 1; // 1-5 spots
-                spots.textContent = randomSpots;
-            }
-        }
-        
-        // Live activity updates
-        function updateLiveActivity() {
-            const cities = ['Москва', 'Санкт-Петербург', 'Новосибирск', 'Екатеринбург', 'Казань', 'Нижний Новгород'];
-            const names = ['Марина', 'Анна', 'Елена', 'Ольга', 'Татьяна', 'Светлана'];
-            
-            const randomCity = cities[Math.floor(Math.random() * cities.length)];
-            const randomName = names[Math.floor(Math.random() * names.length)];
-            
-            const liveActivity = document.querySelector('.live-activity');
-            if (liveActivity) {
-                liveActivity.innerHTML = `
-                    <i class="fas fa-bolt"></i> 
-                    <span>${randomName} из ${randomCity} только что приобрела план</span>
-                    <span class="time">только что</span>
-                `;
-            }
-        }
-        
-        // Format price with proper spacing for large numbers
-        function formatPrice(price) {
-            return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-        }
-        
-        // Update all price displays based on country
-        function updatePrices(countryCode) {
-            const config = CURRENCY_CONFIG[countryCode] || CURRENCY_CONFIG.DEFAULT;
-            
-            // Update calculator section
-            document.getElementById('originalPrice').textContent = `${formatPrice(config.originalPrice)} ${config.symbol}`;
-            document.getElementById('specialPrice').textContent = `${formatPrice(config.price)} ${config.symbol}`;
-            document.getElementById('totalPrice').textContent = `Итого: ${formatPrice(config.price)} ${config.symbol}`;
-            
-            // Update price section
-            document.getElementById('pageOriginalPrice').textContent = `Обычная цена: ${formatPrice(config.originalPrice)} ${config.symbol}`;
-            document.getElementById('pageCurrentPrice').textContent = `Только сегодня: ${formatPrice(config.price)} ${config.symbol}`;
-            document.getElementById('pagePriceNote').textContent = `Экономия ${formatPrice(config.originalPrice - config.price)} ${config.symbol}! Предложение действует 24 часа.`;
-            
-            // Update comparison table
-            document.getElementById('comparisonPrice').textContent = `${formatPrice(config.price)} ${config.symbol}`;
-            
-            // Store the button URL for purchase
+
+        function updateAllTexts(config) {
+            const symbol = config.symbol;
+            const price = config.price;
+            const original = config.originalPrice;
+            const alternative = config.alternativePrice;
+            const savings = original - price;
+            const daily = Math.ceil(price / 30);
+
+            // Price section
+            document.getElementById('pageOriginalPrice').textContent = `Обычная цена: ${formatPrice(original)} ${symbol}`;
+            document.getElementById('pageCurrentPrice').textContent = `Только сегодня: ${formatPrice(price)} ${symbol}`;
+            document.getElementById('pagePriceNote').textContent = `Экономия ${formatPrice(savings)} ${symbol}! Предложение действует 24 часа.`;
+
+            // Calculator
+            document.getElementById('originalPrice').textContent = `${formatPrice(original)} ${symbol}`;
+            document.getElementById('specialPrice').textContent = `${formatPrice(price)} ${symbol}`;
+            document.getElementById('savingsAmount').textContent = `${formatPrice(savings)} ${symbol}`;
+            document.getElementById('dailyCost').textContent = `${formatPrice(daily)} ${symbol}`;
+            document.getElementById('totalPrice').textContent = `Итого: ${formatPrice(price)} ${symbol}`;
+
+            // Comparison
+            document.getElementById('comparisonPrice').textContent = `${formatPrice(price)} ${symbol}`;
+            document.getElementById('alternativePrice').textContent = `От ${formatPrice(alternative)} ${symbol}`;
+
+            // Sticky CTA
+            document.getElementById('stickyPrice').textContent = `Только ${formatPrice(price)} ${symbol}`;
+
+            // Bonus section
+            document.getElementById('bonusList').innerHTML = `
+                <div class="bonus-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Персональная консультация с диетологом (${formatPrice(config.bonus1)} ${symbol})</span>
+                </div>
+                <div class="bonus-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Гайд "Как не сорваться на праздниках"</span>
+                </div>
+                <div class="bonus-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Доступ к VIP-группе поддержки</span>
+                </div>
+            `;
+            document.getElementById('bonusTotalPrice').textContent = `Общая стоимость бонусов: ${formatPrice(config.bonusTotal)} ${symbol}`;
+
+            // Store URL
             window.purchaseUrl = config.buttonUrl;
-            
-            // Hide loading overlay
+
+            // Hide loader
             document.getElementById('loadingOverlay').style.display = 'none';
         }
-        
-        // Detect user country and set appropriate prices
+
         function detectCountryAndSetPrices() {
             fetch('https://ipapi.co/json/')
                 .then(response => response.json())
                 .then(data => {
                     const countryCode = data.country_code;
-                    updatePrices(countryCode);
+                    const config = CURRENCY_CONFIG[countryCode] || CURRENCY_CONFIG.DEFAULT;
+                    updateAllTexts(config);
                 })
-                .catch(error => {
-                    console.error('Error detecting country:', error);
-                    // Fallback to default (EUR) if detection fails
-                    updatePrices('DEFAULT');
+                .catch(() => {
+                    updateAllTexts(CURRENCY_CONFIG.DEFAULT);
                 });
         }
-        
-        // Sticky CTA button functionality
+
+        function initializeCountdown() {
+            const updateCountdown = () => {
+                const now = new Date();
+                const nextMidnight = new Date(now);
+                nextMidnight.setDate(nextMidnight.getDate() + (nextMidnight.getHours() >= 23 ? 1 : 0));
+                nextMidnight.setHours(23, 59, 59, 999);
+                const diff = nextMidnight - now;
+                if (diff <= 0) {
+                    const tomorrow = new Date(now);
+                    tomorrow.setDate(tomorrow.getDate() + 1);
+                    tomorrow.setHours(23, 59, 59, 999);
+                    updateTimerDisplay(tomorrow - now);
+                } else {
+                    updateTimerDisplay(diff);
+                }
+            };
+            const updateTimerDisplay = (diff) => {
+                const h = Math.floor(diff / (1000 * 60 * 60));
+                const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((diff % (1000 * 60)) / 1000);
+                document.getElementById('hours').textContent = h.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = m.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = s.toString().padStart(2, '0');
+            };
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        }
+
+        function updateScarcity() {
+            document.getElementById('spotsLeft').textContent = Math.floor(Math.random() * 5) + 1;
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             initializeCountdown();
             updateScarcity();
-            
-            // Update live activity every 45 seconds
-            updateLiveActivity();
-            setInterval(updateLiveActivity, 45000);
-            
-            // Detect country and set prices
             detectCountryAndSetPrices();
-            
-            // Button click handlers
-            const buttons = document.querySelectorAll('.final-btn, .sticky-btn');
-            buttons.forEach(button => {
-                button.addEventListener('click', function(e) {
+
+            // Buttons
+            document.querySelectorAll('.final-btn, .sticky-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
                     e.preventDefault();
-                    
-                    // Check if user has committed
-                    const commitment = document.getElementById('commitment');
-                    if (commitment && !commitment.checked) {
-                        commitment.checked = true;
-                        // Brief pause to simulate commitment
-                        setTimeout(() => {
-                            redirectToPayment();
-                        }, 500);
-                    } else {
-                        redirectToPayment();
+                    if (window.purchaseUrl) {
+                        window.location.href = window.purchaseUrl;
                     }
                 });
             });
-            
-            // Video play button
-            const playBtn = document.querySelector('.play-btn');
-            if (playBtn) {
-                playBtn.addEventListener('click', function() {
-                    alert('📹 Видео недоступно в демо-версии.\nВ реальном сайте здесь будет видео от создателя программы!');
-                });
-            }
-            
-            // Auto-scroll CTA after 20 seconds
-            setTimeout(() => {
-                const finalCta = document.querySelector('.final-cta');
-                if (finalCta) {
-                    finalCta.scrollIntoView({ behavior: 'smooth' });
-                }
-            }, 20000);
         });
-        
-        function redirectToPayment() {
-            if (window.purchaseUrl) {
-                window.location.href = window.purchaseUrl;
-            } else {
-                // Fallback if URL not set yet
-                setTimeout(redirectToPayment, 100);
-            }
-        }
     </script>
 </body>
 </html>
+
+
