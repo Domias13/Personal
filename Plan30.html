@@ -281,7 +281,8 @@ border-radius: 4px;
 margin: 10px 0; overflow: hidden;
 }
 .meter-fill{
-height: 100%; background: linear-gradient(90deg, var(--success), var(--primary)); width: 94%;
+height: 100%;
+background: linear-gradient(90deg, var(--success), var(--primary)); width: 94%;
 border-radius: 4px;
 }
 .trust-text{
@@ -547,6 +548,87 @@ gap: 10px;
 color: var(--success);
 margin-top: 4px;
 }
+
+/* === ПЕРСОНАЛЬНОЕ МЕНЮ СЕКЦИЯ === */
+.personal-menu-section {
+  padding: 40px 0;
+  background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+}
+.personal-menu-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.personal-menu-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.personal-menu-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--dark);
+  margin-bottom: 10px;
+}
+.personal-menu-subtitle {
+  font-size: 18px;
+  color: var(--gray);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+.personal-menu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+.personal-menu-item {
+  background: white;
+  border-radius: 16px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border-top: 4px solid var(--primary);
+}
+.personal-menu-number {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 15px;
+}
+.personal-menu-stat {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--dark);
+  margin-bottom: 10px;
+}
+.personal-menu-label {
+  font-size: 14px;
+  color: var(--gray);
+  margin-bottom: 15px;
+}
+.personal-menu-text {
+  font-size: 14px;
+  color: var(--gray);
+  line-height: 1.5;
+}
+.personal-menu-conclusion {
+  background: white;
+  border-radius: 16px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  margin-top: 25px;
+}
+.personal-menu-conclusion-text {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--dark);
+  line-height: 1.6;
+}
+.personal-menu-conclusion-highlight {
+  color: var(--primary);
+  font-weight: 800;
+}
+
 .results-section-title{
 padding: 30px 0;
 background: linear-gradient(135deg, #dcfce7, #bbf7d0);
@@ -921,6 +1003,13 @@ animation: pulse 2s infinite;
 .benefits-grid { grid-template-columns: repeat(2, 1fr);}
 .steps{ flex-direction: row; flex-wrap: wrap;} .step{ flex: 1; min-width: 200px;} .team-grid{ grid-template-columns: repeat(2, 1fr);}
 }
+
+/* Mobile adaptation for personal menu */
+@media (max-width: 767px) {
+  .personal-menu-grid {
+    grid-template-columns: 1fr;
+  }
+}
 </style> </head>
 <body>
 <!-- Экран выбора страны(показывается по умолчанию)-->
@@ -1192,6 +1281,7 @@ animation: pulse 2s infinite;
           <div class="carousel-slide">
             <img src="https://i.ibb.co/23nnQHCZ/sinchuk-fit-1762248500414.jpg" alt="Алла" class="slide-photo">
             <div class="slide-name">Алла, 44 года</div>
+            ```html
             <div class="slide-stats">-15 кг за 30 дней</div>
             <p class="slide-text">"После 40 всё сильнее, а не сложнее! Меню доказало, что возраст — не помеха для идеальной фигуры!"</p>
           </div>
@@ -1237,7 +1327,6 @@ animation: pulse 2s infinite;
           <div class="benefit-icon">
             <i class="fas fa-utensils"></i>
           </div>
-          ```html
           <h3 class="benefit-title">Персональное Меню</h3>
           <p class="benefit-desc">Питание под твои вкусы, бюджет и образ жизни. Никаких шаблонов и универсальных схем.</p>
         </div>
@@ -1310,7 +1399,7 @@ animation: pulse 2s infinite;
     </div>
   </section>
 
-  <!-- About Me -->
+  <!-- About Me - COMPLETELY REWORKED -->
   <section class="team-section">
     <div class="container">
       <h2 class="section-title">Почему Мне Можно Доверять?</h2>
@@ -1319,13 +1408,44 @@ animation: pulse 2s infinite;
           <img src="https://i.ibb.co/LzF6c9Qc/IMG-0294.jpg" alt="Роман pro100diet" class="member-avatar">
           <h3 class="member-name">Роман</h3>
           <p class="member-title">Автор проекта pro100diet</p>
-          <p class="member-desc">Я не обещаю чудес и быстрых результатов. Моя ценность — адекватность, индивидуальность и практичность. Я создаю питание, которое поддерживает, а не становится дополнительным стрессом.</p>
+          <p class="member-desc">
+            Я не из позиции «у меня всё идеально».<br>
+            Я из позиции человека, который:<br>
+            • проходил сложные периоды в жизни,<br>
+            • менял страны и образ жизни,<br>
+            • сталкивался с нестабильностью, стрессом и перегрузками.
+          </p>
+          <p class="member-desc" style="margin-top: 15px;">
+            И на собственном опыте понял, что:<br>
+            <strong>питание либо поддерживает человека,<br>
+            либо становится ещё одним источником давления.</strong>
+          </p>
+          <p class="member-desc" style="margin-top: 15px; font-weight: 700; color: var(--primary);">
+            Моя цель — сделать питание опорой, а не наказанием.
+          </p>
         </div>
         <div class="team-member">
-          <img src="https://i.ibb.co/qM386nV7/1735880402742.jpg" alt="Мой подход" class="member-avatar">
-          <h3 class="member-name">Мой подход</h3>
-          <p class="member-title">Практический опыт</p>
-          <p class="member-desc">Много лет изучаю тему питания и пищевых привычек. Работал с реальными людьми, а не абстрактной теорией. Видел, почему диеты не работают в долгую и где люди чаще всего срываются.</p>
+          <div style="height: 80px; display: flex; align-items: center; justify-content: center; font-size: 48px; color: var(--primary);">
+            <i class="fas fa-heart"></i>
+          </div>
+          <h3 class="member-name">Мой Подход</h3>
+          <p class="member-title">Без иллюзий и пафоса</p>
+          <p class="member-desc">
+            Я не позиционирую себя как «инфо-гуру» или фитнес-блогер.<br>
+            Мой фокус — <strong>прагматичное питание для реальной жизни</strong>, а не для идеальных условий.
+          </p>
+          <p class="member-desc" style="margin-top: 15px;">
+            Я вижу одну и ту же картину снова и снова:<br>
+            • люди садятся на диету<br>
+            • держатся несколько дней или недель<br>
+            • срываются<br>
+            • чувствуют вину<br>
+            • и снова набирают вес
+          </p>
+          <p class="member-desc" style="margin-top: 15px; font-weight: 700; color: var(--danger);">
+            Проблема не в «слабой силе воли»,<br>
+            а в том, что диеты не учитывают реальную жизнь человека.
+          </p>
         </div>
       </div>
     </div>
@@ -1359,37 +1479,46 @@ animation: pulse 2s infinite;
     </div>
   </section>
 
-  <!-- Why Personal Menu -->
-  <section class="results-section-title">
-    <div class="container">
-      <h2 class="results-title">Почему Персональное Меню?</h2>
-      <div class="results-grid">
-        <div class="result-item">
-          <div class="result-stats">
-            <div class="result-stat">
-              <div class="result-value">Диеты</div>
-              <div class="result-label">не работают</div>
-            </div>
-            <div class="result-stat">
-              <div class="result-value">в долгую</div>
-              <div class="result-label">для 95%</div>
-            </div>
-          </div>
-          <p class="result-text">Проблема не в «слабой силе воли», а в том, что диеты не учитывают реальную жизнь человека.</p>
+  <!-- WHY PERSONAL MENU - COMPLETELY REWORKED -->
+  <section class="personal-menu-section">
+    <div class="personal-menu-container">
+      <div class="personal-menu-header">
+        <h2 class="personal-menu-title">Почему Персональное Меню?</h2>
+        <p class="personal-menu-subtitle">Потому что универсальные решения не работают для уникальных людей</p>
+      </div>
+      
+      <div class="personal-menu-grid">
+        <div class="personal-menu-item">
+          <div class="personal-menu-number">1</div>
+          <div class="personal-menu-stat">95%</div>
+          <div class="personal-menu-label">людей</div>
+          <p class="personal-menu-text">бросают диеты в течение первых 2-3 недель из-за их нереалистичности и жёстких ограничений</p>
         </div>
-        <div class="result-item">
-          <div class="result-stats">
-            <div class="result-stat">
-              <div class="result-value">Персональное</div>
-              <div class="result-label">меню</div>
-            </div>
-            <div class="result-stat">
-              <div class="result-value">работает</div>
-              <div class="result-label">для 89%</div>
-            </div>
-          </div>
-          <p class="result-text">Потому что оно создано под конкретного человека, его жизнь, вкусы и ограничения.</p>
+        <div class="personal-menu-item">
+          <div class="personal-menu-number">2</div>
+          <div class="personal-menu-stat">89%</div>
+          <div class="personal-menu-label">клиентов</div>
+          <p class="personal-menu-text">продолжают следовать персональному меню через месяц, потому что оно реально для их жизни</p>
         </div>
+        <div class="personal-menu-item">
+          <div class="personal-menu-number">3</div>
+          <div class="personal-menu-stat">73%</div>
+          <div class="personal-menu-label">людей</div>
+          <p class="personal-menu-text">говорят, что чувство вины за еду — главный барьер для здорового питания</p>
+        </div>
+        <div class="personal-menu-item">
+          <div class="personal-menu-number">4</div>
+          <div class="personal-menu-stat">100%</div>
+          <div class="personal-menu-label">меню</div>
+          <p class="personal-menu-text">создаются индивидуально под конкретного человека, а не под абстрактную статистику</p>
+        </div>
+      </div>
+      
+      <div class="personal-menu-conclusion">
+        <p class="personal-menu-conclusion-text">
+          <span class="personal-menu-conclusion-highlight">Диеты не работают, потому что они созданы для идеального мира.</span><br>
+          Моё меню работает, потому что оно создано для <span class="personal-menu-conclusion-highlight">твоего</span> реального мира.
+        </p>
       </div>
     </div>
   </section>
