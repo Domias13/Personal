@@ -3,266 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ірина Бондарчук — Моделювання готичного мигдалю</title>
+    <title>Ірина Бондарчук — Офлайн Курс Моделювання</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Montserrat:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --gold: #C5A059;
-            --dark-bg: #0A0A0A;
-        }
-        body { font-family: 'Montserrat', sans-serif; background-color: var(--dark-bg); color: white; scroll-behavior: smooth; }
-        .font-serif { font-family: 'Cormorant Garamond', serif; }
-        .text-gold { color: var(--gold); }
-        .bg-gold { background-color: var(--gold); }
-        .border-gold { border-color: var(--gold); }
+        body { font-family: 'Inter', sans-serif; background-color: #0c0c0c; color: #e5e5e5; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .text-accent { color: #C5A059; }
+        .bg-accent { background-color: #C5A059; }
+        .border-accent { border-color: #C5A059; }
         
-        /* Стилізація під референси */
-        .img-zoom { overflow: hidden; }
-        .img-zoom img { transition: transform 1.5s ease; }
-        .img-zoom:hover img { transform: scale(1.05); }
+        .section-tight { padding: 60px 0; }
+        .grid-compact { gap: 1.5rem; }
         
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
-        .gold-button {
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s ease;
-        }
-        .gold-button:hover {
-            box-shadow: 0 0 30px rgba(197, 160, 89, 0.3);
-            background-color: white;
-            color: black;
-        }
+        .nav-link { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.3s; }
+        .nav-link:hover { color: #C5A059; }
 
-        /* Анімація появи */
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+        .content-card { 
+            background: #141414; 
+            border: 1px solid #222; 
+            padding: 2rem;
+            transition: border-color 0.3s;
+        }
+        .content-card:hover { border-color: #C5A059; }
+
+        .timeline-item { 
+            display: flex; 
+            border-bottom: 1px solid #1a1a1a; 
+            padding: 1rem 0;
+            align-items: center;
+        }
+        .timeline-time { min-width: 120px; font-weight: 600; color: #C5A059; }
     </style>
 </head>
 <body>
 
-    <!-- Меню -->
-    <nav class="fixed w-full z-50 px-6 py-6 flex justify-between items-center transition-all duration-500" id="navbar">
-        <div class="text-2xl font-serif tracking-[0.2em] uppercase italic">Bondarchuk</div>
-        <div class="hidden md:flex space-x-10 text-[10px] uppercase tracking-[0.3em] font-light">
-            <a href="#about" class="hover:text-gold transition">Курс</a>
-            <a href="#program" class="hover:text-gold transition">Програма</a>
-            <a href="#schedule" class="hover:text-gold transition">Таймінг</a>
-            <a href="#booking" class="hover:text-gold transition">Контакти</a>
+    <!-- Шапка -->
+    <header class="fixed w-full z-50 bg-[#0c0c0c]/90 backdrop-blur-sm border-b border-white/5">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex justify-between items-center">
+            <div class="text-xl font-serif italic tracking-wider">Bondarchuk.Nails</div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#about" class="nav-link">Курс</a>
+                <a href="#program" class="nav-link">Програма</a>
+                <a href="#schedule" class="nav-link">Графік</a>
+                <a href="#price" class="nav-link">Вартість</a>
+            </nav>
+            <a href="#booking" class="bg-accent text-black px-5 py-2 text-[10px] font-bold uppercase tracking-widest">Записатись</a>
         </div>
-        <div class="md:hidden"><i class="fa-solid fa-bars text-xl"></i></div>
-    </nav>
+    </header>
 
-    <!-- Hero Section (Референс: Фото змодельованих нігтів) -->
-    <section class="relative h-screen flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black z-10"></div>
-            <!-- Плейсхолдер під головне фото (готичний мигдаль) -->
-            <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=1887" alt="Готичний мигдаль" class="w-full h-full object-cover scale-110">
-        </div>
-        
-        <div class="relative z-20 text-center px-6">
-            <p class="text-gold uppercase tracking-[0.5em] text-[10px] mb-8 reveal">Офлайн навчання • Варшава / Краків</p>
-            <h1 class="text-5xl md:text-8xl font-serif italic mb-10 reveal tracking-tight leading-none">Gothic Almond<br><span class="text-3xl md:text-5xl tracking-widest uppercase not-italic font-light opacity-80">Art Modeling</span></h1>
-            <div class="flex flex-col md:flex-row gap-8 justify-center items-center reveal">
-                <a href="#booking" class="bg-gold text-black px-12 py-5 text-[10px] uppercase tracking-[0.3em] font-bold gold-button">Забронювати місце</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Проблема & Рішення (Референс: Фото процесу/інструментів) -->
-    <section id="about" class="py-32 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-                <div class="reveal img-zoom relative">
-                    <!-- Фото змодельованого нігтя (макро) -->
-                    <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?q=80&w=2070" alt="Макро френч" class="w-full aspect-[4/5] object-cover rounded-sm">
-                    <div class="absolute -bottom-10 -right-10 w-64 h-64 border border-gold/20 -z-10 hidden lg:block"></div>
-                </div>
-                <div class="reveal">
-                    <h2 class="text-4xl font-serif italic mb-12 text-gold">Відшарування та тріщини — в минулому.</h2>
-                    <p class="text-gray-400 font-light leading-relaxed mb-10 text-lg">
-                        Ти розумієш, що матеріали не тримаються, а архітектура "пливе"? На цьому курсі ми розберемо фізику штучного нігтя до дрібниць. Жодної води — лише техніка, яка працює на будь-якій пластині.
+    <!-- Головний блок (Підводка) -->
+    <section class="pt-32 pb-16 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-accent text-xs font-bold uppercase tracking-[0.3em] block mb-4">Живий курс • Варшава / Краків</span>
+                    <h1 class="text-4xl md:text-6xl font-serif italic mb-6 leading-tight">Моделювання готичного мигдалю в стилі ART</h1>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-8 max-w-lg">
+                        Навчись техніці моделювання на будь-який тип нігтьової пластини, яка виведе тебе на новий рівень роботи та доходу. Від правильної архітектури до складних 3D-дизайнів за 1 інтенсивний день.
                     </p>
-                    <div class="grid grid-cols-2 gap-8 border-t border-white/10 pt-10">
-                        <div>
-                            <span class="block text-2xl font-serif text-gold mb-2">01</span>
-                            <span class="text-[10px] uppercase tracking-widest text-gray-500">Постановка шаблонів</span>
+                    <div class="flex items-center space-x-6">
+                        <div class="text-center border-r border-white/10 pr-6">
+                            <span class="block text-2xl font-serif italic">1 день</span>
+                            <span class="text-[10px] text-gray-500 uppercase">Тривалість</span>
                         </div>
-                        <div>
-                            <span class="block text-2xl font-serif text-gold mb-2">02</span>
-                            <span class="text-[10px] uppercase tracking-widest text-gray-500">3D-Дизайни</span>
+                        <div class="text-center">
+                            <span class="block text-2xl font-serif italic">до 4</span>
+                            <span class="text-[10px] text-gray-500 uppercase">Осіб у групі</span>
                         </div>
-                        <div>
-                            <span class="block text-2xl font-serif text-gold mb-2">03</span>
-                            <span class="text-[10px] uppercase tracking-widest text-gray-500">Чітка усмішка</span>
-                        </div>
-                        <div>
-                            <span class="block text-2xl font-serif text-gold mb-2">04</span>
-                            <span class="text-[10px] uppercase tracking-widest text-gray-500">Точний опил</span>
-                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=1000" alt="Nail Art" class="w-full grayscale brightness-75 border border-white/10">
+                    <div class="absolute -bottom-4 -left-4 bg-accent p-6 text-black">
+                        <p class="text-xs font-bold uppercase tracking-widest leading-tight">Тільки практика<br>на моделях</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Програма (Референс: Естетика портфоліо) -->
-    <section id="program" class="py-32 bg-[#050505]">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
-                <h2 class="text-5xl font-serif italic reveal">Програма інтенсиву</h2>
-                <p class="text-gray-500 text-[10px] uppercase tracking-[0.4em] reveal">Один день — повна трансформація</p>
+    <!-- Чіткий зміст (Проблематика) -->
+    <section id="about" class="section-tight bg-[#111] px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-2xl font-serif italic mb-10 border-l-2 border-accent pl-4 uppercase tracking-widest">Для кого цей курс?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 grid-compact">
+                <div class="content-card">
+                    <i class="fa-solid fa-circle-exclamation text-accent mb-4"></i>
+                    <h3 class="font-bold text-sm uppercase mb-3 tracking-wider">Маєш відшарування?</h3>
+                    <p class="text-xs text-gray-500 leading-loose">Якщо ти не розумієш, чому нігті тріскаються або відпадають, ми розберемо фізику матеріалу та архітектуру, що тримається ідеально.</p>
+                </div>
+                <div class="content-card">
+                    <i class="fa-solid fa-scissors text-accent mb-4"></i>
+                    <h3 class="font-bold text-sm uppercase mb-3 tracking-wider">Складно з формами?</h3>
+                    <p class="text-xs text-gray-500 leading-loose">Навчимося підрізати та встановлювати нижні шаблони під будь-який тип натурального нігтя без помилок.</p>
+                </div>
+                <div class="content-card">
+                    <i class="fa-solid fa-chart-line text-accent mb-4"></i>
+                    <h3 class="font-bold text-sm uppercase mb-3 tracking-wider">Хочеш вищий чек?</h3>
+                    <p class="text-xs text-gray-500 leading-loose">Опануєш затребувані техніки створення витончених нігтів (ART-френч, 3D-ложе), за які клієнти готові платити більше.</p>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="glass-panel p-12 reveal hover:bg-white/5 transition duration-500">
-                    <span class="text-xs text-gold font-bold uppercase tracking-widest block mb-6">Ранок • Теорія</span>
-                    <h3 class="text-2xl font-serif italic mb-8 uppercase tracking-widest">Архітектура та Матеріали</h3>
-                    <ul class="space-y-4 text-sm text-gray-400 font-light">
-                        <li>— Типи нігтьових пластин та їх особливості</li>
-                        <li>— Підбір матеріалів (гель, полігель, акрил)</li>
-                        <li>— Секрети ідеальної підрізки нижніх шаблонів</li>
-                        <li>— Схема опилу ложа: ідеальні вуса френча</li>
+    <!-- Програма навчання -->
+    <section id="program" class="section-tight px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-2xl font-serif italic mb-10 border-l-2 border-accent pl-4 uppercase tracking-widest text-right">Що в програмі?</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                <div class="content-card bg-transparent">
+                    <h4 class="text-accent text-xs font-bold uppercase mb-6 tracking-[0.2em]">Теоретична база</h4>
+                    <ul class="text-sm space-y-4">
+                        <li class="flex items-center gap-3"><span class="w-1 h-1 bg-accent"></span> Аналіз типів нігтьових пластин</li>
+                        <li class="flex items-center gap-3"><span class="w-1 h-1 bg-accent"></span> Вибір матеріалів під тип нігтя</li>
+                        <li class="flex items-center gap-3"><span class="w-1 h-1 bg-accent"></span> Схема постановки шаблонів під готичний мигдаль</li>
+                        <li class="flex items-center gap-3"><span class="w-1 h-1 bg-accent"></span> Схема опилу ложа з ідеальними лініями</li>
+                        <li class="flex items-center gap-3"><span class="w-1 h-1 bg-accent"></span> Побудова 3D-малюнка всередині нігтя</li>
                     </ul>
                 </div>
-                <div class="glass-panel p-12 reveal hover:bg-white/5 transition duration-500">
-                    <span class="text-xs text-gold font-bold uppercase tracking-widest block mb-6">День • Практика</span>
-                    <h3 class="text-2xl font-serif italic mb-8 uppercase tracking-widest">ART моделювання</h3>
-                    <ul class="space-y-4 text-sm text-gray-400 font-light">
-                        <li>— Постановка шаблону та піджим для вузької форми</li>
-                        <li>— Створення 3D-ложа з глибиною малюнка</li>
-                        <li>— Викладка подвійної усмішки френча</li>
-                        <li>— Бонус: Техніка інкрустації камінням</li>
+                <div class="content-card bg-transparent">
+                    <h4 class="text-accent text-xs font-bold uppercase mb-6 tracking-[0.2em]">Практика (Відпрацювання)</h4>
+                    <ul class="text-sm space-y-4">
+                        <li class="flex items-center gap-3"><span class="w-1 h-1 bg-accent"></span> Підготовка та підстановка шаблонів</li>
+                        <li class="flex items-center gap-3"><span class="w-1 h-1 bg-accent"></span> Моделювання готичного мигдалю (довгі форми)</li>
+                        <li class="flex items-center gap-3"><span class="w-1 h-1 bg-accent"></span> Створення ART-френчу (блискітки, висота, вусики)</li>
+                        <li class="flex items-center gap-3"><span class="w-1 h-1 bg-accent"></span> Повний опил форми до ідеалу</li>
+                        <li class="flex items-center gap-3"><span class="w-1 h-1 bg-accent"></span> Бонус: Міні МК з інкрустації камінням</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Таймінг (Референс: Фото робіт учнів) -->
-    <section id="schedule" class="py-32 px-6">
-        <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-24 reveal">
-                <h2 class="text-4xl font-serif italic mb-4">Таймінг дня</h2>
-                <div class="w-12 h-px bg-gold mx-auto"></div>
+    <!-- Детальний графік -->
+    <section id="schedule" class="section-tight bg-[#111] px-6">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-2xl font-serif italic uppercase tracking-widest">Таймінг дня</h2>
+                <p class="text-[10px] text-gray-500 uppercase mt-2">Ми працюємо на результат, а не на час</p>
             </div>
-
-            <div class="space-y-16">
-                <!-- Рядок таймінгу -->
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 reveal border-b border-white/5 pb-8">
-                    <span class="text-gold font-serif italic text-2xl">09:00 — 11:00</span>
-                    <span class="text-sm uppercase tracking-widest font-light">Теоретичний блок</span>
-                    <span class="text-gray-600 text-[10px]">КАВА ТА ЗНАЙОМСТВО</span>
-                </div>
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 reveal border-b border-white/5 pb-8">
-                    <span class="text-gold font-serif italic text-2xl">11:00 — 14:00</span>
-                    <span class="text-sm uppercase tracking-widest font-light">Підготовка та ложе</span>
-                    <span class="text-gray-600 text-[10px]">РОБОТА НА МОДЕЛІ</span>
-                </div>
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 reveal border-b border-white/5 pb-8">
-                    <span class="text-gold font-serif italic text-2xl">14:30 — 19:00</span>
-                    <span class="text-sm uppercase tracking-widest font-light">Френч та фінішний опил</span>
-                    <span class="text-gray-600 text-[10px]">ФОРМУВАННЯ АРХІТЕКТУРИ</span>
-                </div>
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 reveal border-b border-white/5 pb-8">
-                    <span class="text-gold font-serif italic text-2xl">19:30</span>
-                    <span class="text-sm uppercase tracking-widest font-light">Сертифікація</span>
-                    <span class="text-gray-600 text-[10px]">ВРУЧЕННЯ ТА ФОТО</span>
-                </div>
+            <div class="text-sm">
+                <div class="timeline-item"><span class="timeline-time">09:00 – 11:00</span><span>Теорія: Архітектура та матеріали</span></div>
+                <div class="timeline-item"><span class="timeline-time">11:00 – 13:00</span><span>Підготовка та підстановка шаблонів</span></div>
+                <div class="timeline-item"><span class="timeline-time">13:00 – 14:00</span><span>Викладка 3D-ложа</span></div>
+                <div class="timeline-item"><span class="timeline-time">14:00 – 14:30</span><span class="text-accent italic">Coffee Break ☕</span></div>
+                <div class="timeline-item"><span class="timeline-time">14:30 – 16:30</span><span>Опил мигдалю та викладка френчу</span></div>
+                <div class="timeline-item"><span class="timeline-time">16:30 – 18:30</span><span>Фінальний опил форми</span></div>
+                <div class="timeline-item border-none"><span class="timeline-time">19:00</span><span class="font-bold">Видача сертифікатів 🎓</span></div>
             </div>
         </div>
     </section>
 
-    <!-- Реєстрація (Референс: Естетика мінімалізму) -->
-    <section id="booking" class="py-32 px-6">
-        <div class="max-w-7xl mx-auto bg-white/[0.02] p-12 md:p-24 border border-white/5 relative overflow-hidden">
-            <div class="absolute top-0 left-0 w-full h-1 bg-gold"></div>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
-                <div class="reveal">
-                    <h2 class="text-5xl font-serif italic mb-8">Готові підвищити свій чек?</h2>
-                    <p class="text-gray-500 font-light mb-12">Залиште заявку, і я сконтактуюся з вами, щоб підібрати зручну дату навчання у Варшаві чи Кракові.</p>
-                    <div class="space-y-6 text-sm">
-                        <div class="flex items-center gap-4 text-gold">
-                            <i class="fa-solid fa-location-dot"></i>
-                            <span class="uppercase tracking-widest text-[10px]">Warszawa / Kraków</span>
-                        </div>
-                        <div class="flex items-center gap-4 text-gold">
-                            <i class="fa-solid fa-users"></i>
-                            <span class="uppercase tracking-widest text-[10px]">Групи до 4 осіб</span>
-                        </div>
-                    </div>
+    <!-- Вартість та що входить -->
+    <section id="price" class="section-tight px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="content-card border-accent">
+                    <h3 class="text-xl font-serif italic mb-6">Що входить у вартість?</h3>
+                    <ul class="text-xs space-y-4 text-gray-400">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-accent"></i> Робоче місце з усім необхідним обладнанням</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-accent"></i> Всі професійні матеріали для моделювання</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-accent"></i> Методичний посібник у подарунок</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-accent"></i> Доступ до онлайн-курсу на 60 днів</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-accent"></i> Супровід інструктора в Telegram-чаті</li>
+                    </ul>
                 </div>
-
-                <div class="reveal">
-                    <form onsubmit="event.preventDefault(); showDone();" class="space-y-8">
-                        <input type="text" placeholder="ВАШЕ ІМ'Я" class="w-full bg-transparent border-b border-white/20 py-4 focus:outline-none focus:border-gold transition uppercase text-[10px] tracking-widest">
-                        <input type="tel" placeholder="НОМЕР ТЕЛЕФОНУ" class="w-full bg-transparent border-b border-white/20 py-4 focus:outline-none focus:border-gold transition uppercase text-[10px] tracking-widest">
-                        <button class="w-full bg-white text-black py-6 text-[10px] uppercase font-bold tracking-[0.4em] hover:bg-gold hover:text-black transition duration-500">Надіслати запит</button>
+                <div id="booking" class="bg-accent p-10 text-black">
+                    <h3 class="text-2xl font-serif italic mb-4">Забронювати місце</h3>
+                    <p class="text-xs uppercase font-bold tracking-widest mb-8 opacity-70">Наступний курс у Варшаві</p>
+                    <form class="space-y-4" onsubmit="event.preventDefault(); alert('Дякуємо! Ми звʼяжемось з вами.');">
+                        <input type="text" placeholder="Ваше ім'я" required class="w-full bg-black/10 border-b border-black/20 py-3 px-2 focus:outline-none placeholder:text-black/40 text-sm">
+                        <input type="tel" placeholder="Номер телефону / Telegram" required class="w-full bg-black/10 border-b border-black/20 py-3 px-2 focus:outline-none placeholder:text-black/40 text-sm">
+                        <button class="w-full bg-black text-white py-4 text-xs font-bold uppercase tracking-[0.2em] mt-6 hover:bg-zinc-800 transition">Надіслати заявку</button>
                     </form>
+                    <p class="text-[9px] mt-6 leading-relaxed">* Після заявки ми обговоримо зручну локацію (Варшава або Краків) та дату.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-20 border-t border-white/5 text-center">
-        <div class="text-xl font-serif tracking-[0.3em] uppercase italic mb-8">Bondarchuk</div>
-        <div class="flex justify-center space-x-8 mb-10 text-gray-500 text-lg">
-            <a href="#" class="hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" class="hover:text-white transition"><i class="fa-brands fa-telegram"></i></a>
-            <a href="#" class="hover:text-white transition"><i class="fa-brands fa-whatsapp"></i></a>
-        </div>
-        <p class="text-[8px] text-gray-700 uppercase tracking-[0.5em]">© 2024 IRINA BONDARCHUK. ALL RIGHTS RESERVED.</p>
+    <footer class="py-12 border-t border-white/5 text-center px-6">
+        <p class="text-[10px] text-gray-600 uppercase tracking-[0.4em]">Irina Bondarchuk • Premium Nail Education</p>
     </footer>
 
-    <!-- Success Modal -->
-    <div id="modal" class="fixed inset-0 z-[100] flex items-center justify-center px-6 hidden">
-        <div class="absolute inset-0 bg-black/95"></div>
-        <div class="relative bg-white text-black p-16 text-center max-w-lg">
-            <h4 class="text-3xl font-serif italic mb-6">Дякую!</h4>
-            <p class="text-xs uppercase tracking-widest leading-loose mb-10">Ваша заявка отримана. Я зв'яжуся з вами протягом 24 годин.</p>
-            <button onclick="document.getElementById('modal').classList.add('hidden')" class="border border-black px-12 py-4 text-[9px] uppercase tracking-widest hover:bg-black hover:text-white transition">Закрити</button>
-        </div>
-    </div>
-
     <script>
-        // Анімація появи елементів
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 150;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                }
-            }
-        }
-        window.addEventListener("scroll", reveal);
-        window.onload = reveal;
-
-        // Навігація при скролі
-        window.onscroll = function() {
-            var nav = document.getElementById('navbar');
-            if (window.pageYOffset > 50) {
-                nav.style.backgroundColor = 'rgba(10, 10, 10, 0.95)';
-                nav.style.padding = '20px 24px';
-            } else {
-                nav.style.backgroundColor = 'transparent';
-                nav.style.padding = '24px 24px';
-            }
-        };
-
-        function showDone() {
-            document.getElementById('modal').classList.remove('hidden');
-        }
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
     </script>
 </body>
 </html>
