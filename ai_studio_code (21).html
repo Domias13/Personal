@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neuro-Detox | Курс Романа</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;800&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --bg-dark: #0f172a; /* Deep Slate */
+            --bg-card: #1e293b; /* Lighter Slate */
+            --bg-darker: #020617; /* Almost Black */
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #fbbf24; /* Amber Gold */
+            --accent-hover: #d97706;
+            --accent-glow: rgba(251, 191, 36, 0.2);
+            --danger: #ef4444;
+            --success: #10b981;
+            --font-main: 'Manrope', sans-serif;
+            --font-display: 'Playfair Display', serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding-bottom: 80px; /* Space for sticky button */
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* --- UTILITY CLASSES --- */
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        .text-center { text-align: center; }
+        .highlight { color: var(--accent); }
+        .bold { font-weight: 700; }
+        
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            color: #fff;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 3rem auto;
+        }
+
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-block;
+            padding: 18px 40px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+            color: var(--bg-darker);
+            border-radius: 50px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 4px 15px var(--accent-glow);
+            text-align: center;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px var(--accent-glow);
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 18px 40px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 50px;
+            cursor: pointer;
+            background: transparent;
+            border: 2px solid var(--text-muted);
+            color: var(--text-main);
+            transition: 0.3s;
+            text-align: center;
+        }
+        .btn-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at 50% 40%, #1e293b 0%, #0f172a 70%);
+            position: relative;
+            overflow: hidden;
+            padding: 120px 0 60px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+        }
+
+        .tagline {
+            display: inline-block;
+            padding: 8px 16px;
+            border: 1px solid var(--accent);
+            border-radius: 30px;
+            color: var(--accent);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            line-height: 1.1;
+            background: linear-gradient(to right, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        /* --- VIDEO SECTION --- */
+        .video-section { background: #000; padding: 60px 0; text-align: center; border-bottom: 1px solid #333; }
+        .video-box {
+            max-width: 800px; margin: 0 auto; position: relative; border-radius: 20px; overflow: hidden; 
+            border: 1px solid #333; box-shadow: 0 20px 50px rgba(251, 191, 36, 0.1);
+            aspect-ratio: 16/9; background: #1e293b; display: flex; align-items: center; justify-content: center;
+        }
+        .play-btn {
+            width: 80px; height: 80px; background: rgba(251, 191, 36, 0.9); border-radius: 50%; 
+            display: flex; align-items: center; justify-content: center; cursor: pointer; transition: transform 0.2s;
+        }
+        .play-btn:hover { transform: scale(1.1); }
+        .play-icon {
+            width: 0; height: 0; border-top: 15px solid transparent; 
+            border-bottom: 15px solid transparent; border-left: 25px solid #000; margin-left: 5px;
+        }
+
+        /* --- HORMONE GRAPH --- */
+        .graph-section { padding: 80px 0; background: var(--bg-dark); }
+        .graph-box {
+            max-width: 700px; margin: 0 auto; background: var(--bg-card); padding: 40px; 
+            border-radius: 20px; border: 1px solid rgba(255,255,255,0.05);
+        }
+        .graph-bars {
+            display: flex; justify-content: space-between; align-items: flex-end; height: 200px; 
+            margin-bottom: 20px; border-bottom: 2px solid #333; padding-bottom: 10px; position: relative;
+        }
+
+        /* --- SEGMENTATION --- */
+        .segment-section { padding: 80px 0; background: var(--bg-darker); }
+        .segment-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 40px; }
+        .segment-card { background: var(--bg-card); padding: 30px; border-radius: 12px; border-left: 4px solid var(--accent); }
+
+        /* --- PAIN & COMPARISON --- */
+        .pain-section { padding: 80px 0; background: var(--bg-dark); }
+        .pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .pain-card { background: var(--bg-card); padding: 35px; border-radius: 16px; border-left: 3px solid var(--danger); }
+        
+        .comparison-wrapper {
+            display: flex; gap: 0; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            flex-wrap: wrap; margin-top: 60px;
+        }
+        .comp-col { flex: 1; padding: 50px 40px; min-width: 320px; }
+        .comp-bad { background: #18181b; }
+        .comp-good { background: linear-gradient(135deg, #1e293b, #0f172a); border: 1px solid var(--accent); position: relative; }
+        .comp-good::before { 
+            content: 'РЕЗУЛЬТАТ КУРСА'; position: absolute; top: 20px; right: 20px; background: var(--accent); 
+            color: #000; font-size: 0.7rem; font-weight: bold; padding: 5px 10px; border-radius: 5px; 
+        }
+
+        /* --- FORMAT --- */
+        .format-section { padding: 100px 0; background: var(--bg-card); }
+        .format-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; margin-top: 40px; }
+        .format-item { text-align: center; padding: 20px; }
+        .format-icon { font-size: 3rem; margin-bottom: 20px; display: block; }
+
+        /* --- CURRICULUM --- */
+        .curriculum-section { padding: 100px 0; background: var(--bg-darker); }
+        .module-card {
+            background: var(--bg-card); border: 1px solid rgba(255,255,255,0.05); padding: 40px; 
+            margin-bottom: 30px; border-radius: 16px; position: relative;
+        }
+        .module-tag {
+            background: rgba(251, 191, 36, 0.1); color: var(--accent); padding: 5px 12px; 
+            border-radius: 4px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase;
+        }
+
+        /* --- REVIEWS (CAROUSEL) --- */
+        .reviews-section {
+            padding: 100px 0;
+            background: linear-gradient(to bottom, var(--bg-darker), var(--bg-card));
+            overflow: hidden;
+        }
+        .reviews-scroll {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding-bottom: 30px;
+            padding-left: 20px;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .reviews-scroll::-webkit-scrollbar { display: none; }
+        
+        .review-card {
+            min-width: 300px;
+            max-width: 350px;
+            background: var(--bg-dark);
+            padding: 25px;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.05);
+            flex-shrink: 0;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            gap: 10px;
+        }
+        .review-avatar {
+            width: 40px; height: 40px;
+            background: linear-gradient(45deg, #333, #555);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: bold; font-size: 0.8rem;
+        }
+        .review-stars { color: var(--accent); font-size: 0.9rem; }
+        .review-text { font-size: 0.95rem; font-style: italic; color: #cbd5e1; line-height: 1.5; }
+
+        /* --- AUTHOR --- */
+        .author-section { padding: 80px 0; background: var(--bg-dark); border-top: 1px solid rgba(255,255,255,0.05); }
+        .author-box { display: flex; align-items: center; gap: 50px; background: var(--bg-card); padding: 50px; border-radius: 24px; flex-wrap: wrap; }
+        .author-img {
+            width: 200px; height: 200px; background: #1e293b; border-radius: 50%; flex-shrink: 0;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzFBMjAzNSIvPjxjaXJjbGUgY3g9IjEwMCIgY3k9IjcwIiByPSI0MCIgZmlsbD0iIzQ3NTU2OSIvPjxwYXRoIGQ9Ik0zMCAxODBDMzAgMTMwIDcwIDEzMCAxMDAgMTMwQzEzMCAxMzAgMTcwIDEzMCAxNzAgMTgwIiBmaWxsPSIjNDc1NTY5Ii8+PC9zdmc+');
+            background-size: cover; border: 4px solid var(--accent);
+        }
+
+        /* --- BONUSES --- */
+        .bonus-section { padding: 80px 0; background: var(--bg-darker); }
+        .bonus-box { border: 1px dashed var(--accent); padding: 40px; border-radius: 20px; background: rgba(251, 191, 36, 0.05); }
+        .bonus-item {
+            display: flex; align-items: center; gap: 20px; margin-bottom: 20px; 
+            border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 20px;
+        }
+        .bonus-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .bonus-val { color: var(--accent); font-weight: bold; white-space: nowrap; margin-left: auto; }
+
+        /* --- PRICING --- */
+        .pricing-section { padding: 100px 0; }
+        .pricing-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+        .price-card {
+            background: var(--bg-card); padding: 40px; border-radius: 20px; width: 100%; max-width: 400px; 
+            border: 1px solid rgba(255,255,255,0.05); position: relative; display: flex; flex-direction: column;
+        }
+        .price-card.featured {
+            border: 2px solid var(--accent); transform: scale(1.05); background: linear-gradient(180deg, #1e293b, #0f172a);
+        }
+        .badge { 
+            position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--accent); 
+            color: #000; padding: 6px 16px; border-radius: 20px; font-weight: 800; font-size: 0.8rem; 
+        }
+        .price { font-size: 3.5rem; font-family: var(--font-display); margin: 20px 0; color: #fff; }
+        .price span { font-size: 1rem; color: var(--text-muted); font-family: var(--font-main); }
+        .features { margin-bottom: 30px; flex-grow: 1; }
+        .features li { margin-bottom: 15px; display: flex; align-items: flex-start; gap: 10px; font-size: 0.95rem; }
+
+        /* --- FAQ & GUARANTEE --- */
+        .faq-section { padding: 80px 0; max-width: 800px; margin: 0 auto; }
+        details { background: var(--bg-card); margin-bottom: 15px; border-radius: 10px; overflow: hidden; }
+        summary { padding: 20px; cursor: pointer; font-weight: 600; position: relative; list-style: none; }
+        summary::after { content: '+'; position: absolute; right: 20px; font-size: 1.5rem; color: var(--accent); }
+        details[open] summary::after { content: '-'; }
+        .faq-content { padding: 0 20px 20px; color: var(--text-muted); font-size: 0.95rem; }
+
+        .guarantee-box {
+            max-width: 700px; margin: 60px auto 0; border: 1px dashed #475569; padding: 30px; 
+            border-radius: 12px; text-align: center;
+        }
+
+        /* --- STICKY MOBILE CTA --- */
+        .sticky-cta {
+            position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 90%; 
+            max-width: 400px; z-index: 100; display: none; box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .comparison-wrapper { flex-direction: column; }
+            .author-box { flex-direction: column; text-align: center; gap: 20px; }
+            .price-card.featured { transform: scale(1); }
+            .sticky-cta { display: block; }
+            body { padding-bottom: 100px; }
+            .bonus-item { flex-direction: column; text-align: center; }
+            .bonus-val { margin-left: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header style="position: absolute; width: 100%; top: 0; padding: 20px 0; z-index: 10;">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <div style="font-weight: 800; font-size: 1.5rem;">NEURO<span class="highlight">DETOX</span></div>
+            <a href="#pricing" class="btn" style="padding: 10px 20px; font-size: 0.8rem;">Купить курс</a>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container hero-content">
+            <span class="tagline">Курс-практикум по восстановлению</span>
+            <h1>Взломай свой мозг и забудь бывшего за <span class="highlight">21 день</span></h1>
+            <p>Меня зовут Роман, мне 46 лет. Я сам прошел через развод и собрал себя заново по методам нейробиологии. Я покажу тебе путь от "жить не хочу" до "я свободна и счастлива".</p>
+            <a href="#pricing" class="btn">Записаться на курс</a>
+            <div style="margin-top: 30px; display: flex; justify-content: center; gap: 20px; font-size: 0.8rem; color: #64748b;">
+                <span>🔒 Анонимно</span>
+                <span>🎥 21 Видео-урок</span>
+                <span>🎓 Проверено</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIDEO SECTION -->
+    <section class="video-section">
+        <div class="container">
+            <h2 class="section-title" style="font-size: 2rem;">Посмотрите это видео перед стартом</h2>
+            <p style="color: #94a3b8; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Всего 60 секунд. Я объясню, почему ваша боль — это не "любовь", а ошибка мозга, и как мы это исправим.
+            </p>
+            <div class="video-box">
+                <div class="play-btn">
+                    <div class="play-icon"></div>
+                </div>
+                <span style="position: absolute; bottom: 20px; color: #fff; background: rgba(0,0,0,0.7); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem;">▶ Смотреть обращение Романа</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEGMENTATION -->
+    <section class="segment-section">
+        <div class="container">
+            <h2 class="section-title text-center">Подойдет ли это вам?</h2>
+            <p class="section-subtitle text-center">Курс разработан для самых сложных случаев зависимости.</p>
+            <div class="segment-grid">
+                <div class="segment-card">
+                    <h4 style="color: #fff; margin-bottom: 10px;">💔 Долгий брак и развод</h4>
+                    <p style="font-size: 0.9rem; color: #94a3b8;">"Мы были вместе 15 лет. Я не помню, как жить одной".<br><br> <span style="color:var(--text-main)">✔ Курс построит вашу новую идентичность.</span></p>
+                </div>
+                <div class="segment-card">
+                    <h4 style="color: #fff; margin-bottom: 10px;">👻 Токсичные "качели"</h4>
+                    <p style="font-size: 0.9rem; color: #94a3b8;">"Он то приходит, то исчезает. Я измотана".<br><br> <span style="color:var(--text-main)">✔ Разорвем цикл зависимости жесткими границами.</span></p>
+                </div>
+                <div class="segment-card">
+                    <h4 style="color: #fff; margin-bottom: 10px;">🧊 Внезапный уход</h4>
+                    <p style="font-size: 0.9rem; color: #94a3b8;">"Вчера все было хорошо, сегодня он ушел без объяснений".<br><br> <span style="color:var(--text-main)">✔ Снимем шок и панику за 3 дня.</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAIN POINTS -->
+    <section class="pain-section">
+        <div class="container">
+            <h2 class="section-title text-center">Почему время НЕ лечит?</h2>
+            <div class="pain-grid">
+                <div class="pain-card">
+                    <h3>👀 Цифровой сталкер</h3>
+                    <p>Проверка его соцсетей создает иллюзию контроля, но на деле лишь продлевает агонию и кормит зависимость.</p>
+                </div>
+                <div class="pain-card">
+                    <h3>🧠 Ментальная жвачка</h3>
+                    <p>Бесконечные диалоги в голове. «А если бы я...», «Почему он...». Это сжигает 80% вашей жизненной энергии.</p>
+                </div>
+                <div class="pain-card">
+                    <h3>💊 Химия боли</h3>
+                    <p>Вы не скучаете по нему. Ваше тело скучает по привычным гормонам. Это обычная ломка, как у наркоманов.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HORMONE GRAPH -->
+    <section class="graph-section">
+        <div class="container">
+            <h2 class="section-title text-center">Наша цель: сменить химию</h2>
+            <p class="section-subtitle text-center">Наглядно: что произойдет с вашими гормонами.</p>
+            <div class="graph-box">
+                <div class="graph-bars">
+                    <!-- Day 1 -->
+                    <div style="text-align: center; width: 30%;">
+                        <div style="height: 150px; background: #ef4444; width: 40px; margin: 0 auto; border-radius: 5px 5px 0 0;">
+                            <span style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); color: #ef4444; font-weight: bold;">MAX</span>
+                        </div>
+                        <div style="margin-top: 10px; font-size: 0.9rem; color: #94a3b8;">День 1</div>
+                        <div style="font-size: 0.8rem; color: #ef4444;">Кортизол (Стресс)</div>
+                    </div>
+                    <!-- Arrow -->
+                    <div style="color: #64748b; font-size: 2rem; padding-bottom: 50px;">➔</div>
+                    <!-- Day 21 -->
+                    <div style="text-align: center; width: 30%;">
+                        <div style="height: 160px; background: #fbbf24; width: 40px; margin: 0 auto; border-radius: 5px 5px 0 0; box-shadow: 0 0 20px rgba(251, 191, 36, 0.4);">
+                            <span style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); color: #fbbf24; font-weight: bold;">Пик</span>
+                        </div>
+                        <div style="margin-top: 10px; font-size: 0.9rem; color: #94a3b8;">День 21</div>
+                        <div style="font-size: 0.8rem; color: #fbbf24;">Дофамин (Радость)</div>
+                    </div>
+                </div>
+                <p style="text-align: center; font-size: 0.9rem; color: #94a3b8;">*Результаты учеников при соблюдении протокола</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMAT: WHAT IS INSIDE -->
+    <section class="format-section">
+        <div class="container">
+            <h2 class="section-title text-center">Как проходит обучение?</h2>
+            <div class="format-grid">
+                <div class="format-item">
+                    <span class="format-icon">🎥</span>
+                    <h3>Видео-уроки</h3>
+                    <p style="color:var(--text-muted); font-size:0.9rem;">21 видео от меня. Просто, по-мужски, без воды.</p>
+                </div>
+                <div class="format-item">
+                    <span class="format-icon">📘</span>
+                    <h3>Рабочая тетрадь</h3>
+                    <p style="color:var(--text-muted); font-size:0.9rem;">PDF-воркбук с заданиями. Пишем, анализируем, сжигаем.</p>
+                </div>
+                <div class="format-item">
+                    <span class="format-icon">🎧</span>
+                    <h3>Аудио-практики</h3>
+                    <p style="color:var(--text-muted); font-size:0.9rem;">Медитации для сна и снятия тревоги. Слушайте мой голос.</p>
+                </div>
+                <div class="format-item">
+                    <span class="format-icon">💬</span>
+                    <h3>Поддержка</h3>
+                    <p style="color:var(--text-muted); font-size:0.9rem;">Закрытый чат, где вас поймут и поддержат.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CURRICULUM -->
+    <section class="curriculum-section">
+        <div class="container">
+            <h2 class="section-title text-center">Программа курса</h2>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="module-card">
+                    <span class="module-tag">Модуль 1 (Дни 1-7)</span>
+                    <h3 style="margin: 10px 0;">Ампутация прошлого</h3>
+                    <p style="color:var(--text-muted);">Жесткий детокс. Убираем "якоря". Техники работы с острой болью. Вы наконец-то начнете спать.</p>
+                </div>
+                <div class="module-card">
+                    <span class="module-tag">Модуль 2 (Дни 8-14)</span>
+                    <h3 style="margin: 10px 0;">Перепрошивка личности</h3>
+                    <p style="color:var(--text-muted);">Когнитивная работа. Манифест границ. Меняем стиль. Учимся получать дофамин без него.</p>
+                </div>
+                <div class="module-card">
+                    <span class="module-tag">Модуль 3 (Дни 15-21)</span>
+                    <h3 style="margin: 10px 0;">Возрождение</h3>
+                    <p style="color:var(--text-muted);">Техники прощения (для себя). Планирование будущего. Выход в новое состояние свободы.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEWS SECTION (CAROUSEL) -->
+    <section class="reviews-section">
+        <div class="container">
+            <h2 class="section-title text-center">Отзывы участниц</h2>
+            <p class="section-subtitle text-center">Реальные истории (листайте вправо)</p>
+            
+            <div class="reviews-scroll">
+                <!-- Review 1 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">A</div>
+                        <div>
+                            <div class="bold">Анна, 29 лет</div>
+                            <div class="review-stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Роман, спасибо за правду. Подруги меня жалели, и я тонула. Ваша система дала мне пощечину, которая привела в чувство. На 4-й день меня отпустило физически. Я впервые поела."</p>
+                </div>
+                <!-- Review 2 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">K</div>
+                        <div>
+                            <div class="bold">Кристина, 34 года</div>
+                            <div class="review-stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Он позвонил вчера. Раньше меня бы трясло. А вчера я просто посмотрела на экран, улыбнулась и отложила телефон. Я СВОБОДНА! Это лучшее чувство в мире. Спасибо за поддержку!"</p>
+                </div>
+                <!-- Review 3 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">M</div>
+                        <div>
+                            <div class="bold">Мария, 26 лет</div>
+                            <div class="review-stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Я не верила, что писанина в дневнике может работать. Но этот протокол работает как часы. Я больше не жду его, я живу свою жизнь. Вы сэкономили мне годы терапии."</p>
+                </div>
+                <!-- Review 4 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">O</div>
+                        <div>
+                            <div class="bold">Ольга, 41 год</div>
+                            <div class="review-stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"После 20 лет брака я думала, что умру. Роман показал, как собрать себя по кускам. Очень ценно, что это мужской взгляд без лишних соплей. Четко, по делу и с душой."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AUTHOR SECTION -->
+    <section class="author-section">
+        <div class="container">
+            <div class="author-box">
+                <div class="author-img"></div>
+                <div class="author-bio">
+                    <h3>Ваш наставник</h3>
+                    <h4 style="color: var(--accent); font-size: 1.4rem; margin-bottom: 15px;">Роман, 46 лет</h4>
+                    <p>Я не буду вашей "подружкой", которая нальет вина и скажет, что он козел. Я буду тренером, который вытащит вас из болота, даже если придется тащить силой.</p>
+                    <p>В 46 лет я потерял семью и смыслы. Я знаю эту боль. Я собрал этот курс из методик Стэнфорда и личного опыта выживания. Это работает.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BONUSES SECTION -->
+    <section class="bonus-section">
+        <div class="container">
+            <h2 class="section-title text-center">Бонусы при регистрации сегодня</h2>
+            <div style="max-width: 800px; margin: 0 auto;" class="bonus-box">
+                <div class="bonus-item">
+                    <div style="font-size:2rem;">🆘</div>
+                    <div>
+                        <h4 style="font-size:1.1rem;">Аудио "Скорая помощь"</h4>
+                        <p style="font-size:0.9rem; color:var(--text-muted);">Включать, когда рука тянется позвонить ему. Отрезвляет мгновенно.</p>
+                    </div>
+                    <div class="bonus-val">$29 (Бесплатно)</div>
+                </div>
+                <div class="bonus-item">
+                    <div style="font-size:2rem;">🚩</div>
+                    <div>
+                        <h4 style="font-size:1.1rem;">Чек-лист "Красные флаги"</h4>
+                        <p style="font-size:0.9rem; color:var(--text-muted);">Как распознать абьюзера на первом свидании.</p>
+                    </div>
+                    <div class="bonus-val">$19 (Бесплатно)</div>
+                </div>
+                <div class="bonus-item">
+                    <div style="font-size:2rem;">📱</div>
+                    <div>
+                        <h4 style="font-size:1.1rem;">Гайд "Дейтинг после"</h4>
+                        <p style="font-size:0.9rem; color:var(--text-muted);">Когда регистрироваться в Тиндере и как не искать "заместителя".</p>
+                    </div>
+                    <div class="bonus-val">$19 (Бесплатно)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing" class="pricing-section">
+        <div class="container">
+            <h2 class="section-title text-center">Формат участия</h2>
+            
+            <div class="pricing-grid">
+                <!-- Basic Tier ($49) -->
+                <div class="price-card">
+                    <h3>Самостоятельный</h3>
+                    <p style="color:var(--text-muted); font-size:0.9rem;">Вся база знаний</p>
+                    <div class="price">$49</div>
+                    <ul class="features">
+                        <li>✅ 21 Видео-урок</li>
+                        <li>✅ PDF Рабочая тетрадь</li>
+                        <li>✅ Аудио-медитации</li>
+                        <li>❌ Без чата и поддержки</li>
+                    </ul>
+                    <!-- LINK UPDATED -->
+                    <a href="https://secure.wayforpay.com/button/b274673f509a4" class="btn btn-outline">Купить за $49</a>
+                </div>
+
+                <!-- Pro Tier ($99) -->
+                <div class="price-card featured">
+                    <div class="badge">РЕКОМЕНДУЮ</div>
+                    <h3>VIP Наставничество</h3>
+                    <p style="color:var(--text-muted); font-size:0.9rem;">Для гарантированного результата</p>
+                    <div class="price">$99</div>
+                    <ul class="features">
+                        <li>✅ <strong>Всё, что в тарифе за $49</strong></li>
+                        <li>✅ <strong>Доступ в закрытый чат</strong></li>
+                        <li>✅ Ответы на вопросы лично от меня</li>
+                        <li>✅ 🎁 Все 3 бонуса (SOS-гайд и др.)</li>
+                    </ul>
+                    <!-- LINK UPDATED -->
+                    <a href="https://secure.wayforpay.com/button/bc6321ad25f27" class="btn">Купить за $99</a>
+                    <p style="text-align:center; margin-top:10px; font-size:0.8rem; color:var(--accent);">🔥 Лучшая цена</p>
+                </div>
+            </div>
+
+            <!-- GUARANTEE -->
+            <div class="guarantee-box">
+                <h4 style="font-size:1.2rem; margin-bottom:10px; color:#fff;">🛡️ Гарантия возврата средств</h4>
+                <p style="color:var(--text-muted); font-size:0.9rem;">
+                    Я уверен в своей методике. Но если вы пройдете первые 5 уроков и поймете, что вам не подходит — я верну 100% оплаты. Без вопросов.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ (UPDATED) -->
+    <section class="faq-section">
+        <h2 class="section-title text-center">Вопросы и ответы</h2>
+        
+        <details>
+            <summary>А если мы снова сойдемся?</summary>
+            <div class="faq-content">
+                Отлично. Но вы вернетесь в эти отношения не как "Жертва", которая не может жить без него, а как "Королева", которая выбирает. Курс не про ненависть, а про вашу независимость.
+            </div>
+        </details>
+
+        <details>
+            <summary>У меня нет времени на задания.</summary>
+            <div class="faq-content">
+                Уроки занимают 15-20 минут в день. Это меньше, чем вы тратите на прокрутку ленты соцсетей и слежку за бывшим.
+            </div>
+        </details>
+
+        <details>
+            <summary>Я не спортсменка, смогу ли я?</summary>
+            <div class="faq-content">
+                Олимпийские рекорды не нужны. Нужна физическая активность, чтобы сжечь стресс. Ходьба тоже подходит. Главное — не лежать.
+            </div>
+        </details>
+
+        <details>
+            <summary>Нужно ли мне будет его ненавидеть?</summary>
+            <div class="faq-content">
+                Нет. Ненависть — это тоже форма привязанности. Наша цель — спокойное равнодушие. Вы просто перестанете эмоционально реагировать на него.
+            </div>
+        </details>
+
+        <details>
+            <summary>Подойдет ли мне курс, если мне 50+?</summary>
+            <div class="faq-content">
+                Абсолютно. Нейропластичность (способность мозга меняться) работает в любом возрасте. У меня были ученицы и в 60 лет, которые начинали новую жизнь.
+            </div>
+        </details>
+
+        <details>
+            <summary>Я хожу к психологу / пью антидепрессанты.</summary>
+            <div class="faq-content">
+                Курс отлично дополняет терапию. Поведенческие техники ускоряют процесс выздоровления. Однако, если у вас тяжелая клиническая депрессия, обязательно проконсультируйтесь с врачом.
+            </div>
+        </details>
+
+        <details>
+            <summary>Никто не узнает, что я здесь?</summary>
+            <div class="faq-content">
+                Полная конфиденциальность. В чате вы можете использовать псевдоним. Ваши данные надежно защищены.
+            </div>
+        </details>
+
+        <details>
+            <summary>Как происходит оплата из других стран?</summary>
+            <div class="faq-content">
+                Платежная система принимает карты Visa/Mastercard любой страны мира. Конвертация валют происходит автоматически вашим банком.
+            </div>
+        </details>
+        
+        <details>
+            <summary>Доступ остается навсегда?</summary>
+            <div class="faq-content">
+                Да, вы покупаете курс один раз и можете возвращаться к материалам в любой момент. Доступ не ограничен по времени.
+            </div>
+        </details>
+    </section>
+
+    <!-- FOOTER -->
+    <footer style="padding: 40px 0; text-align: center; border-top: 1px solid #333; color: #64748b; font-size: 0.8rem;">
+        <div class="container">
+            <p>© 2026 NeuroDetox Course by Roman. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- STICKY CTA MOBILE -->
+    <a href="#pricing" class="btn sticky-cta text-center">Начать обучение</a>
+
+</body>
+</html>
