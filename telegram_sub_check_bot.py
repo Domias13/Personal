@@ -2,6 +2,7 @@ import logging
 import os
 from typing import Optional
 
+from dotenv import load_dotenv
 from telegram import Update
 from telegram.constants import ChatMemberStatus
 from telegram.ext import Application, CommandHandler, ContextTypes
@@ -12,6 +13,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+load_dotenv()
 
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 CHANNEL_USERNAME = os.getenv("CHANNEL_USERNAME")
